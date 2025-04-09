@@ -1,0 +1,29 @@
+.quote-block {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    max-width: 600px;
+}
+
+.quote-icon {
+    font-size: 80px;
+    color: #30472F;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.quote-text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.quote-author {
+    font-size: 17px;
+    font-weight: bold;
+    color: #30472F;
+    text-transform: uppercase;
+    margin: 0;
+}
