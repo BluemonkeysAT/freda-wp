@@ -28,10 +28,34 @@ function freda_register_all_blocks_inline() {
             );
         }
 
-        register_block_type("freda/$block_name", array(
+        // Default args
+        $args = array(
             'editor_script' => "freda-block-$block_name",
             'style'         => file_exists($css_file) ? "freda-block-$block_name-style" : null,
-        ));
+        );
+
+        // Special render logic for dynamic tag-list block
+        if ($block_name === 'tag-list-block') {
+            $args['render_callback'] = function () {
+                $post_id = get_the_ID();
+                $tags = get_the_tags($post_id);
+
+                if (!is_array($tags) || empty($tags)) {
+                    return '';
+                }
+
+                $output = '<div class="freda-tag-list">';
+                foreach ($tags as $tag) {
+                    $output .= esc_html($tag->name) . ', ';
+                }
+                $output = rtrim($output, ', ');
+                $output .= '</div>';
+
+                return $output;
+            };
+        }
+
+        register_block_type("freda/$block_name", $args);
     }
 }
 add_action('init', 'freda_register_all_blocks_inline');
