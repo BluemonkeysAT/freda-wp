@@ -42,6 +42,6 @@
                     'theme_location' => 'primary',
                     'menu_class'     => 'nav-menu',
                 ));
-                ?>
+            ?>
         </nav>
     </header>

@@ -29,6 +29,7 @@ function freda_magazine_register_menus() {
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'freda-magazine'),
         'footer'  => __('Footer Menu', 'freda-magazine'),
+        'policies' => __('Policies Menu', 'freda-magazine'),
     ));
 }
 add_action('init', 'freda_magazine_register_menus');
