@@ -1,0 +1,186 @@
+/*
+    Theme Name: FREDA Magazine
+    Theme URI: https://freda-magazine.at
+    Author: Bluemonkeys
+    Author URI: https://bluemonkeys.at
+    Description: A magazine theme for FREDA Magazine.
+    Version: 1.0
+    License: GNU General Public License v2 or later
+    License URI: http://www.gnu.org/licenses/gpl-2.0.html
+    Tags: blog, magazine, news, responsive-layout, custom-background, custom-header, custom-logo, featured-images, flexible-header, theme-options, translation-ready
+    Text Domain: freda
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    background-color: #f4f4f4;
+}
+
+ul, li {
+    list-style: none;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: transparent;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    nav {
+        width: 100%;
+        max-width: 1240px;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        list-style: none;
+
+        li {
+            cursor: pointer;
+            padding: 7px 30px;
+            background-color: #fff;
+            border-radius: 4px;
+
+            &:first-child {
+                background-color: #30472F;
+                
+                a {
+                    color: #fff;
+                }
+            }
+
+            &:nth-child(2) {
+                background-color: #E2E0D3;
+            }
+
+            &:nth-child(3) {
+                background-color: #9C2D5D;
+
+                a {
+                    color: #fff;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: #000000;
+                font-size: 19px;
+                font-weight: 500;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: #f4f4f4;
+                }
+            }
+        }
+    }
+
+    .container {
+        max-width: 1240px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: .5fr 1fr .5fr;
+        align-items: center;
+        padding: 20px 0;
+        gap: 36px;
+
+        .date-temperature {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            p {
+                display: flex;
+                gap: 10px;
+                color: #fff;
+                font-size: 18px;
+            }
+        }
+
+        .site-logo {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 36px;
+
+            &:before, &:after {
+                content: "";
+                display: block;
+                width: 222px;
+                height: 2px;
+                background-color: #fff; 
+            }
+        }
+
+        .search-social {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 36px;
+            width: 100%;
+
+            form {
+                display: flex;
+                aligm-items: center;
+                border: 1px solid #fff;
+                border-radius: 4px;
+                padding: 2px 10px;
+
+                input {
+                    outline: none;
+                    border:none;
+                    font-size: 16px;
+                    background-color: #ffffff00;
+                    width: 70px;
+                    color: #fff;
+
+                    &::placeholder {
+                        color: #fff;
+                        font-size: 16px;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        width: 110px;
+                        transition: width 0.3s ease;
+                    }
+                }
+
+                button {
+                    background-color: #ffffff00;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
