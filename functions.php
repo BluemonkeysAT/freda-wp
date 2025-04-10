@@ -36,3 +36,6 @@ add_action('init', 'freda_magazine_register_menus');
 
 // Register Gutenberg blocks
 require_once get_template_directory() . '/blocks/init.php';
+
+// Register Weather API Call
+require_once get_template_directory() . '/includes/weather.php';

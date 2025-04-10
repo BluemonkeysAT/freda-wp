@@ -127,6 +127,27 @@ header {
             }
         }
 
+        .weather-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+
+        .weather-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: #fff; /* or any color you want */
+            stroke-width: 2;
+        }
+
+        .weather-icon.sun            { background-image: url('/wp-content/themes/freda-wp/assets/icons/weather/sun.svg'); }
+        .weather-icon.moon           { background-image: url('/wp-content/themes/freda-wp/assets/icons/weather/moon.svg'); }
+        .weather-icon.rain           { background-image: url('/wp-content/themes/freda-wp/assets/icons/weather/rain.svg'); }
+        .weather-icon.cloudy         { background-image: url('/wp-content/themes/freda-wp/assets/icons/weather/cloudy.svg'); }
+        .weather-icon.thunderstorm   { background-image: url('/wp-content/themes/freda-wp/assets/icons/weather/thunderstorm.svg'); }
+        .weather-icon.wind           { background-image: url('/wp-content/themes/freda-wp/assets/icons/weather/wind.svg'); }
+
         .site-logo {
             position: relative;
             display: flex;

@@ -12,10 +12,22 @@
                 <p class="current-date"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/calendar-icon.svg" alt="calendar icon"><?php echo date('l, F j, Y'); ?></p>
                 <p class="current-temperature">
                     <?php
-                    // Example temperature data, replace with actual API call
-                    $temperature = 25; // Celsius
-                    $location = 'Wien';
-                    echo '<img src="' . get_template_directory_uri() . '/assets/icons/sun-icon.svg" alt="sun icon" />' . $temperature . '°C ' . $location;
+                    $weather = get_option('swd_weather');
+
+                    if ($weather) {
+                        $icon = swd_get_weather_icon($weather['code'], $weather['icon']);
+                        $temp = $weather['temp'];
+                        $icon_path = get_template_directory() . "/assets/icons/weather/{$icon}.svg";
+
+                        echo '<div class="weather-header">';
+                        if (file_exists($icon_path)) {
+                            echo '<span class="weather-icon">';
+                            echo file_get_contents($icon_path); // inject raw SVG
+                            echo '</span>';
+                        }
+                        echo '<p>Wien - ' . esc_html($temp) . '°C</p>';
+                        echo '</div>';
+                    }
                     ?>
                 </p>
             </div>
