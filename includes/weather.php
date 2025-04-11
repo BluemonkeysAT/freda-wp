@@ -1,13 +1,4 @@
 <?php
-// Only run if Action Scheduler is available
-add_action('after_setup_theme', function () {
-    if (function_exists('as_schedule_recurring_action') && !as_next_scheduled_action('swd_update_weather')) {
-        as_schedule_recurring_action(time(), HOUR_IN_SECONDS, 'swd_update_weather');
-    }
-});
-
-// Action hook to fetch weather
-add_action('swd_update_weather', 'swd_fetch_and_store_weather');
 
 function swd_fetch_and_store_weather() {
     $api_key = '4c1fe9df740e1991e997531342c24fa2'; // make sure it's correct

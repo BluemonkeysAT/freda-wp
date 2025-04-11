@@ -10,7 +10,7 @@
         <div class="container">
             <div class="date-temperature">
                 <p class="current-date"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/calendar-icon.svg" alt="calendar icon"><?php echo date('l, F j, Y'); ?></p>
-                <p class="current-temperature">
+                
                     <?php
                     $weather = get_option('swd_weather');
 
@@ -29,7 +29,7 @@
                         echo '</div>';
                     }
                     ?>
-                </p>
+                
             </div>
             <?php if (has_custom_logo()) : ?>
                 <div class="site-logo">

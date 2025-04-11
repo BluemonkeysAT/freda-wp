@@ -1,5 +1,5 @@
 <?php
-// Add theme support for custom logo
+
 function freda_magazine_custom_logo_setup() {
     add_theme_support('custom-logo', array(
         'height'      => 100,
@@ -36,6 +36,16 @@ add_action('init', 'freda_magazine_register_menus');
 
 // Register Gutenberg blocks
 require_once get_template_directory() . '/blocks/init.php';
+
+// Only run if Action Scheduler is available
+add_action('after_setup_theme', function () {
+    if (function_exists('as_schedule_recurring_action') && !as_next_scheduled_action('swd_update_weather')) {
+        as_schedule_recurring_action(time(), HOUR_IN_SECONDS, 'swd_update_weather');
+    }
+});
+
+// Action hook to fetch weather
+add_action('swd_update_weather', 'swd_fetch_and_store_weather');
 
 // Register Weather API Call
 require_once get_template_directory() . '/includes/weather.php';
