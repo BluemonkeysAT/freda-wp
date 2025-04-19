@@ -1,3 +1,4 @@
+</main>
 <footer>
     <div class="container">
         <div class="column">
@@ -22,7 +23,7 @@
         <div class="column">
             <h3>Bleiben wir in Kontakt</h3>
             <p>Melde dich für unseren Newsletter an und erhalte regelmäßig spannende Beiträge und News.</p>
-            <a href="https://www.freda.at/newsletter/" class="newsletter-btn">Zur Newsletter Anmeldung</a>
+            <a href="https://www.freda.at/newsletter/" class="btn-primary">Zur Newsletter Anmeldung</a>
         </div>
     </div>
     <div class="copyright">
@@ -46,5 +47,6 @@
         </nav>
     </div>
 </footer>
+
 </body>
 <?php wp_footer(); ?>

@@ -1,0 +1,93 @@
+.categories-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 22px;
+
+    .category-item {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+        min-height: 355px;
+        padding: 15px 30px;
+
+        &:after {
+            content:'';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, #000000d1, #00000000);
+            border-radius: 8px;
+        }
+
+        &:hover {
+            .thumbnail-wrapper {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .category-icon {
+            position: absolute;
+            top: -10px;
+            left: 38%;
+            z-index: 10;
+            width: 75px;
+            height: 75px;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+        }
+
+        .thumbnail-wrapper {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            img {
+                height: 100% !important;
+                object-fit:cover;
+                transition: all .3s ease;
+                border-radius: 4px;
+            }
+        }
+
+        .category-info {
+            position: relative;
+            z-index: 1;
+
+            h3 {
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 25px;
+                line-height: 1.4;
+                margin-bottom: 10px;
+            }
+
+            p {
+                color: #fff;
+                font-size: 18px;
+                line-height: 1.1;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                font-weight: 300;
+                font-family: 'GothamNarrow-Light', sans-serif;
+            }
+        }
+    }
+}
