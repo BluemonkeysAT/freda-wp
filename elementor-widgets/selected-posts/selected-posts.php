@@ -84,7 +84,7 @@ class SelectPosts extends Widget_Base {
         if (!empty($post_ids)) {
             $query = new \WP_Query([
             'post__in' => $post_ids,
-            'orderby' => 'post__in', // Ensures the order matches the selected order in Elementor
+            'orderby' => 'post__in',
             ]);
         } elseif (!empty($category_ids)) {
             $query = new \WP_Query([

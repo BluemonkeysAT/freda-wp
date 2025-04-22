@@ -43,6 +43,7 @@
             position: absolute;
             top: 15px;
             left: 15px;
+            font-weight: 400;
         }
 
         .post-info {
@@ -58,6 +59,7 @@
                 color: #fff;
                 font-size: 25px;
                 text-transform: uppercase;
+                font-weight: 600;
             }
 
             p {
@@ -95,11 +97,10 @@
                 flex-direction: column;
                 gap: 15px;
 
-
-
                 h3 {
                     font-size: 25px;
                     text-transform: uppercase;
+                    font-weight: 600;
 
                     a {
                         color: #000;

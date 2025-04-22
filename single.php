@@ -78,9 +78,8 @@
     
     <?php
         $post = get_post();
-        setup_postdata($post);    // setting up the post manually
+        setup_postdata($post); 
         
-        // Then you can fetch/echo the author name
         $authorName = get_the_author(); 
     ?>
 
@@ -93,7 +92,7 @@
                 if (!empty($categories)) {
                     $categoryBackground = get_field('background_color', 'category_' . $categories[0]->term_id);
                     $categoryTextColor = get_field('text_color', 'category_' . $categories[0]->term_id);
-                    echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" class="post-category" style="background-color:' . esc_attr($categoryBackground) . '; color:' . esc_attr($categoryTextColor) . ';">' . esc_html($categories[0]->name) . '</a>';
+                    echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" class="post-category" style="font-weight: 600; background-color:' . esc_attr($categoryBackground) . '; color:' . esc_attr($categoryTextColor) . ';">' . esc_html($categories[0]->name) . '</a>';
                 }
                 ?>
             </div>
@@ -151,4 +150,95 @@
             </div>
         </div>
     </div>
+    <div class="related-posts">
+        <div class="container">
+            <h2>DAS KÖNNTE SIE AUCH INTERESSIEREN</h2>
+            <div class="related-posts__inner">
+                <?php
+                $related_posts = get_field('related_posts');
+
+                if ($related_posts) {
+                    foreach ($related_posts as $related_post) {
+                        
+                        echo '<div class="post-item">';
+                        echo '<a href="' . get_permalink($related_post->ID) . '" class="thumbnail-wrapper">';
+                        if (has_post_thumbnail($related_post->ID)) {
+                            echo get_the_post_thumbnail($related_post->ID, 'large');
+                        }
+                        $categories = get_the_category($related_post->ID);
+                        if (!empty($categories)) {
+                            $categoryBackground = get_field('background_color', 'category_' . $categories[0]->term_id);
+                            $categoryTextColor = get_field('text_color', 'category_' . $categories[0]->term_id);
+                            
+                            echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" 
+                            class="post-category" style="background-color:' . esc_attr($categoryBackground) . '; color:' . esc_attr($categoryTextColor) . ';">' 
+                            . esc_html($categories[0]->name) . 
+                            '</a>';
+                        }
+                        echo '</a>';
+                        echo '<h3 class="post-title"><a href="' . get_permalink($related_post->ID) . '">' . get_the_title($related_post->ID) . '</a></h3>';
+                        echo '<p class="post-excerpt">' . get_the_excerpt($related_post->ID) . '</p>';
+                        echo '</div>';
+                    
+                    }
+                } else {
+                    // Fallback to related posts based on categories if no ACF field is set
+                    $related_posts = get_posts(array(
+                        'category__in' => wp_get_post_categories($post->ID),
+                        'post__not_in' => array($post->ID),
+                        'posts_per_page' => 3,
+                    ));
+
+                    if ($related_posts) {
+                        foreach ($related_posts as $related_post) {
+                            setup_postdata($related_post);
+                            
+                            echo '<div class="post-item">';
+                            echo '<a href="' . get_permalink($related_post->ID) . '" class="thumbnail-wrapper">';
+                            if (has_post_thumbnail($related_post->ID)) {
+                                echo get_the_post_thumbnail($related_post->ID, 'large');
+                            }
+                            $categories = get_the_category($related_post->ID);
+                            if (!empty($categories)) {
+                                $categoryBackground = get_field('background_color', 'category_' . $categories[0]->term_id);
+                                $categoryTextColor = get_field('text_color', 'category_' . $categories[0]->term_id);
+                                
+                                echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" 
+                                class="post-category" style="background-color:' . esc_attr($categoryBackground) . '; color:' . esc_attr($categoryTextColor) . ';">' 
+                                . esc_html($categories[0]->name) . 
+                                '</a>';
+                            }
+                            echo '</a>';
+                            echo '<h3 class="post-title"><a href="' . get_permalink($related_post->ID) . '">' . get_the_title($related_post->ID) . '</a></h3>';
+                            echo '<p class="post-excerpt">' . get_the_excerpt($related_post->ID) . '</p>';
+                            echo '</div>';
+                        }
+                        wp_reset_postdata();
+                    }
+                
+                }
+                ?>
+            </div>
+
+            <div class="related-posts__socials">
+                <h3>FOLGE UNS AUF UNSEREN SOCIAL MEDIA KANÄLEN:</h3>
+                <div class="social-icons">
+                    <a href="#" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-icon.svg" alt="Facebook">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-icon.svg" alt="Instagram">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-icon.svg" alt="X">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-icon.svg" alt="TikTok">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-icon.svg" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+        </div>
 <?php get_footer(); ?>

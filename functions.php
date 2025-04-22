@@ -120,5 +120,90 @@ function load_more_posts_callback() {
     ]);
 }
 
+function register_all_custom_block_widgets() {
+    $blocks_dir = get_template_directory() . '/blocks';
+
+    foreach (glob($blocks_dir . '/*', GLOB_ONLYDIR) as $block_path) {
+        $block_name = basename($block_path);
+        $block_js = "$block_path/block.js";
+        $block_css = "$block_path/style.css";
+
+        if (!file_exists($block_js)) {
+            continue;
+        }
+
+        // Register script
+        wp_register_script(
+            "{$block_name}-script",
+            get_template_directory_uri() . "/blocks/{$block_name}/block.js",
+            ['wp-blocks', 'wp-element', 'wp-editor', 'wp-components'],
+            filemtime($block_js),
+            true
+        );
+
+        // Optional: Register style if exists
+        if (file_exists($block_css)) {
+            wp_register_style(
+                "{$block_name}-style",
+                get_template_directory_uri() . "/blocks/{$block_name}/style.css",
+                [],
+                filemtime($block_css)
+            );
+        }
+
+        // Register block type
+        register_block_type("freda-custom-widgets/{$block_name}", [
+            'editor_script' => "{$block_name}-script",
+            'editor_style'  => file_exists($block_css) ? "{$block_name}-style" : null,
+            'style'         => file_exists($block_css) ? "{$block_name}-style" : null,
+        ]);
+
+        $frontend_js_path = $block_path . '/frontend.js';
+        wp_register_script(
+            'freda-poll-widget-frontend',
+            get_template_directory_uri() . '/blocks/poll-block/frontend.js',
+            [],
+            file_exists($frontend_js_path) ? filemtime($frontend_js_path) : null,
+            true
+        );
+        
+        wp_localize_script('freda-poll-widget-frontend', 'fredaPollAjax', [
+            'ajax_url' => admin_url('admin-ajax.php'),
+        ]);
+        
+        wp_enqueue_script('freda-poll-widget-frontend');
+    }
+}
+add_action('init', 'register_all_custom_block_widgets');
+
+add_action('wp_ajax_freda_poll_vote', 'handle_freda_poll_vote');
+add_action('wp_ajax_nopriv_freda_poll_vote', 'handle_freda_poll_vote');
+
+function handle_freda_poll_vote() {
+	if (!isset($_POST['data'])) {
+		wp_send_json_error('No data');
+	}
+
+	$data = json_decode(stripslashes($_POST['data']), true);
+
+	// Example debug output:
+	// error_log(print_r($data, true));
+
+	// You can save this vote however you want:
+	// - Update post meta (e.g., total votes)
+	// - Store in a custom DB table
+	// - Save via a transient (for prototyping)
+
+	wp_send_json_success('Vote saved!');
+}
+
+
+add_filter('block_categories_all', function ($categories) {
+    return array_merge(
+        [['slug' => 'freda-custom-widgets', 'title' => __('Freda Custom Widgets', 'freda-magazine')]],
+        $categories
+    );
+});
+
 
 
