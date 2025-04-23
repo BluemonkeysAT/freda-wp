@@ -176,26 +176,209 @@ function register_all_custom_block_widgets() {
 }
 add_action('init', 'register_all_custom_block_widgets');
 
+// ===========================
+// 1. Handle AJAX Voting
+// ===========================
+function handle_freda_poll_vote() {
+    
+    if (!isset($_POST['data'], $_POST['post_id'])) {
+        wp_send_json_error(['message' => 'Missing data or post_id']);
+    }
+
+    $data = json_decode(stripslashes($_POST['data']), true);
+    $poll_id = sanitize_text_field($data['id']);
+    $optionIndex = intval($data['optionIndex']);
+    $post_id = intval($_POST['post_id']);
+    $user_id = get_current_user_id();
+    $user_ip = $_SERVER['REMOTE_ADDR'];
+
+    // Load poll meta
+    $voters = get_post_meta($post_id, 'freda_poll_voters', true);
+    $voted_choice = get_post_meta($post_id, 'freda_poll_vote_choice', true);
+    $polls = get_post_meta($post_id, 'freda_poll_data', true);
+    if (!is_array($polls)) $polls = [];
+
+    // Fallback: try loading pollData from post content if DB meta is empty or broken
+    if (empty($polls)) {
+        $post = get_post($post_id);
+        if ($post) {
+            $blocks = parse_blocks($post->post_content);
+            foreach ($blocks as $block) {
+                if (
+                    $block['blockName'] === 'freda-custom-widgets/freda-post-poll' &&
+                    isset($block['attrs']['pollData'])
+                ) {
+                    $polls = $block['attrs']['pollData'];
+                    break;
+                }
+            }
+        }
+    }
+
+    if (!is_array($voters)) $voters = [];
+    if (!is_array($voted_choice)) $voted_choice = [];
+    if (!is_array($polls)) $polls = [];
+
+    $poll_found = false;
+    $selected_poll_votes = [];
+
+    foreach ($polls as &$poll) {
+        
+        if ($poll['id'] === $poll_id) {
+             
+            $poll_found = true;
+
+            if (isset($voters[$poll_id])) {
+                $already = $voters[$poll_id];
+                if (!empty($user_id) && in_array($user_id, $already['users'] ?? [])) {
+                    wp_send_json_error(['message' => 'You have already voted.']);
+                }
+                if (in_array($user_ip, $already['ips'] ?? [])) {
+                    wp_send_json_error(['message' => 'You have already voted.']);
+                }
+            }
+
+            if (!isset($poll['votes'][$optionIndex])) {
+                $poll['votes'][$optionIndex] = 0;
+            }
+
+            $poll['votes'][$optionIndex]++;
+            $selected_poll_votes = $poll['votes'];
+            break;
+        }
+    }
+
+    if (!$poll_found) {
+        wp_send_json_error(['message' => 'Poll not found.']);
+    }
+
+    // Save updated data
+    update_post_meta($post_id, 'freda_poll_data', $polls);
+
+    if (!isset($voted_choice[$poll_id])) {
+        $voted_choice[$poll_id] = [];
+    }
+    if ($user_id) {
+        $voted_choice[$poll_id]['user_' . $user_id] = $optionIndex;
+    } else {
+        $voted_choice[$poll_id]['ip_' . $user_ip] = $optionIndex;
+    }
+    update_post_meta($post_id, 'freda_poll_vote_choice', $voted_choice);
+
+    if (!isset($voters[$poll_id])) {
+        $voters[$poll_id] = ['users' => [], 'ips' => []];
+    }
+    if ($user_id) {
+        $voters[$poll_id]['users'][] = $user_id;
+    } else {
+        $voters[$poll_id]['ips'][] = $user_ip;
+    }
+
+    update_post_meta($post_id, 'freda_poll_voters', $voters);
+    
+    wp_send_json_success([
+        'votes' => $selected_poll_votes,
+        'votedIndex' => $optionIndex
+    ]);
+}
 add_action('wp_ajax_freda_poll_vote', 'handle_freda_poll_vote');
 add_action('wp_ajax_nopriv_freda_poll_vote', 'handle_freda_poll_vote');
 
-function handle_freda_poll_vote() {
-	if (!isset($_POST['data'])) {
-		wp_send_json_error('No data');
+
+// ===========================
+// 2. Inject Live Poll Data into Block (Frontend Only)
+// ===========================
+add_filter('render_block', function ($block_content, $block) {
+    if (
+        $block['blockName'] !== 'freda-custom-widgets/freda-post-poll' ||
+        !is_singular() ||
+        !isset($block['attrs']['pollData'])
+    ) {
+        return $block_content;
+    }
+
+    $post_id = get_the_ID();
+    $poll_data = $block['attrs']['pollData'];
+
+    $saved_votes = get_post_meta($post_id, 'freda_poll_data', true);
+    $voters = get_post_meta($post_id, 'freda_poll_voters', true);
+    $voted_choice = get_post_meta($post_id, 'freda_poll_vote_choice', true);
+
+    if (!is_array($saved_votes)) $saved_votes = [];
+    if (!is_array($voters)) $voters = [];
+    if (!is_array($voted_choice)) $voted_choice = [];
+
+    if (empty($saved_votes)) {
+        // Only save valid polls with IDs
+        $valid = array_filter($poll_data, fn($p) => isset($p['id']) && !empty($p['id']));
+        if (!empty($valid)) {
+            update_post_meta($post_id, 'freda_poll_data', $poll_data);
+            $saved_votes = $poll_data;
+        }
+    }
+    
+    $user_id = get_current_user_id();
+    $user_ip = $_SERVER['REMOTE_ADDR'];
+
+    foreach ($poll_data as &$poll) {
+        $poll_id = $poll['id'];
+
+        foreach ($saved_votes as $saved) {
+            if ($saved['id'] === $poll_id) {
+                $poll['votes'] = $saved['votes'];
+                break;
+            }
+        }
+
+        $is_voted = false;
+        if (isset($voters[$poll_id])) {
+            $entry = $voters[$poll_id];
+            if (!empty($user_id) && in_array($user_id, $entry['users'] ?? [])) {
+                $is_voted = true;
+            }
+            if (empty($user_id) && in_array($user_ip, $entry['ips'] ?? [])) {
+                $is_voted = true;
+            }
+        }
+
+        $voted_index = null;
+        if ($is_voted && isset($voted_choice[$poll_id])) {
+            if (!empty($user_id)) {
+                $voted_index = $voted_choice[$poll_id]['user_' . $user_id] ?? null;
+            } else {
+                $voted_index = $voted_choice[$poll_id]['ip_' . $user_ip] ?? null;
+            }
+        }
+
+        $poll['voted'] = $is_voted;
+        $poll['votedIndex'] = $voted_index;
+    }
+
+    $poll_json = esc_attr(json_encode($poll_data));
+    
+    return preg_replace_callback('/data-poll="([^"]*)"/', function () use ($poll_json, $post_id) {
+        return 'data-poll="' . $poll_json . '" data-post-id="' . $post_id . '"';
+    }, $block_content);
+}, 10, 2);
+
+add_action('save_post', function ($post_id) {
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+	if (wp_is_post_revision($post_id)) return;
+
+	$post = get_post($post_id);
+	if (!$post || $post->post_type !== 'post') return;
+
+	// Check if poll block is still in the content
+	if (has_block('freda-custom-widgets/freda-post-poll', $post->post_content)) {
+		return; // Poll block is still present
 	}
 
-	$data = json_decode(stripslashes($_POST['data']), true);
+	// Poll block removed → delete stored meta
+	delete_post_meta($post_id, 'freda_poll_data');
+	delete_post_meta($post_id, 'freda_poll_vote_choice');
+	delete_post_meta($post_id, 'freda_poll_voters');
+}, 10);
 
-	// Example debug output:
-	// error_log(print_r($data, true));
-
-	// You can save this vote however you want:
-	// - Update post meta (e.g., total votes)
-	// - Store in a custom DB table
-	// - Save via a transient (for prototyping)
-
-	wp_send_json_success('Vote saved!');
-}
 
 
 add_filter('block_categories_all', function ($categories) {

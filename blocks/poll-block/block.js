@@ -28,7 +28,12 @@
                 if (!questionInput.trim()) return;
                 const newData = [
                     ...pollData,
-                    { question: questionInput, options: [''], votes: [0] }
+                    {
+                        id: 'poll_' + Date.now(),
+                        question: questionInput,
+                        options: [''],
+                        votes: [0]
+                    }
                 ];
                 setQuestionInput('');
                 updateState(newData);
@@ -131,28 +136,70 @@
                 pollData.map((item, qIndex) =>
                     wp.element.createElement('div', { className: 'poll-question', key: qIndex },
                         wp.element.createElement('h4', {}, item.question),
-                        wp.element.createElement('form', { className: 'poll-form', 'data-q-index': qIndex },
+                        wp.element.createElement('form', {
+                            className: 'poll-form',
+                            'data-q-index': qIndex
+                        },
                             item.options.map((opt, oIndex) =>
-                                wp.element.createElement('label', { key: oIndex },
-                                    wp.element.createElement('input', {
-                                        type: 'radio',
-                                        name: `poll-question-${qIndex}`,
-                                        value: oIndex
-                                    }),
-                                    ' ',
-                                    opt
+                                wp.element.createElement('div', {
+                                    className: 'poll-option',
+                                    style: { display: 'flex', alignItems: 'center', gap: '10px' }
+                                },
+                                    wp.element.createElement('label', {},
+                                        wp.element.createElement('input', {
+                                            type: 'radio',
+                                            name: `poll-question-${qIndex}`,
+                                            value: oIndex
+                                        }),
+                                        ' ',
+                                        opt
+                                    ),
+                                    wp.element.createElement('span', {
+                                        className: 'poll-percentage',
+                                        'data-q-index': qIndex,
+                                        'data-o-index': oIndex,
+                                        style: { display: 'none' }
+                                    }, '0%')
                                 )
-                            ),
-                            // wp.element.createElement('button', {
-                            //     type: 'button',
-                            //     className: 'poll-vote-button',
-                            //     'data-question-index': qIndex
-                            // }, 'Vote')
-                        )
+                            )
+                        ),
+                        wp.element.createElement('div', {
+                            className: 'poll-spinner',
+                            'data-q-index': qIndex,
+                            style: { display: 'none', marginTop: '10px' }
+                        },
+                            wp.element.createElement('svg', {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                'stroke-width': "2",
+                                'stroke-linecap': "round",
+                                'stroke-linejoin': "round",
+                                className: "spinner-icon"
+                            },
+                                wp.element.createElement('circle', {
+                                    cx: "12", cy: "12", r: "10", stroke: "#ccc", 'stroke-dasharray': "60", 'stroke-dashoffset': "10"
+                                }),
+                                wp.element.createElement('path', {
+                                    d: "M12 2 a10 10 0 0 1 0 20", stroke: "#333"
+                                })
+                            )
+                        ),
+                        wp.element.createElement('div', {
+                            className: 'poll-thankyou',
+                            'data-q-index': qIndex,
+                            style: { display: 'none', marginTop: '10px', fontStyle: 'italic' }
+                        }, 'Thank you for voting!')
+                        
                     )
                 )
             );
         }
+        
+        
         
 	});
 })(window.wp.blocks, window.wp.element, window.wp.blockEditor);

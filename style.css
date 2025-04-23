@@ -230,6 +230,12 @@ h3 {
         border-radius: 8px;
       }
 
+      iframe {
+        margin: 15px 0;
+        width: 100% !important;
+        border-radius: 8px;
+      }
+
       blockquote {
         background-color: #30472f;
         padding: 20px;

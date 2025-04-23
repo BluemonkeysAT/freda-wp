@@ -26,125 +26,135 @@
 }
 
 .questions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+
+  .poll-question {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 20px;
-    width: 100%;
+    padding: 10px 20px;
 
-    .poll-question {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+    h4 {
+      font-size: 18px;
+      color: #000;
+      font-weight: 600;
+
+      button {
+        background: rgb(106, 166, 230);
+        color: #fff;
         padding: 10px 20px;
-
-        h4 {
-            font-size: 18px;
-            color: #000;
-            font-weight: 600;
-
-            button {
-                background:rgb(106, 166, 230);
-                color: #fff;
-                padding: 10px 20px;
-                border-radius: 5px;
-                border: none;
-                cursor: pointer;
-                font-size: 16px;
-            }
-        }
-
-        .poll-options {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            gap: 10px;
-
-            .poll-option {
-                width: 100%;
-            }
-
-            input {
-                font-size: 16px;
-                padding: 3.5px 10px;
-                border: 1px solid #000;
-                border-radius: 5px;
-                width: 90%;
-                transition: all 0.3s ease;
-            }
-
-            button {
-                background:rgb(106, 166, 230);
-                color: #fff;
-                padding: 10px 20px;
-                border-radius: 5px;
-                border: none;
-                cursor: pointer;
-                font-size: 16px;
-            }
-        }
-
-        .delete-question-button {
-            background: #ff0000;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-
-            &:hover {
-                background: #cc0000;
-            }
-        }
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
     }
+
+    .poll-options {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+
+      .poll-option {
+        width: 100%;
+      }
+
+      input {
+        font-size: 16px;
+        padding: 3.5px 10px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        width: 90%;
+        transition: all 0.3s ease;
+      }
+
+      button {
+        background: rgb(106, 166, 230);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    }
+
+    .delete-question-button {
+      background: #ff0000;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #cc0000;
+      }
+    }
+  }
 }
 
 .wp-block-freda-custom-widgets-freda-post-poll {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  width: 100%;
+
+  .poll-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 28px;
-    background: #fff;
-    border-radius: 8px;
-    width: 100%;
+    gap: 12px;
 
-    .poll-form {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+    label {
+      font-size: 18px;
+      color: #000;
+      font-weight: 300;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      background: #f3f2ea;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 80%;
+      position: relative;
 
-        button {
-            display: none;
-        }
+      &:hover {
+        background: #ddd;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+      }
 
-        label {
-            font-size: 18px;
-            color: #000;
-            font-weight: 300;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            background: #fff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 80%;
-            position: relative;
-
-            &:hover {
-                background: #e0e0e0;
-            }
-
-            input {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                opacity: 0;
-                cursor: pointer;
-            }
-        }
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 1;
+      }
     }
+
+    .voted-option {
+      label {
+        background: #30472f;
+        color: #fff;
+        border: 1px solid #fff;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        z-index: 1;
+      }
+    }
+  }
 }
