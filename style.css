@@ -159,7 +159,7 @@ h3 {
         }
       }
     }
-    
+
     .post-title {
       font-size: 40px;
       font-weight: 700;
@@ -170,7 +170,7 @@ h3 {
 
     .post-text {
       margin: 20px 0;
-      
+
       div {
         width: 100% !important;
 
@@ -207,9 +207,11 @@ h3 {
       }
 
       a {
-        color: #9c2d5d;
+        color: #30472F;
+        text-decoration: underline;
         font-size: 18px;
-        font-weight: 300;
+        font-weight: 600;
+        font-style: normal;
 
         &:hover {
           text-decoration: underline;
@@ -271,7 +273,7 @@ h3 {
             color: #9c2d5d;
           }
         }
-      } 
+      }
     }
   }
 }
@@ -280,7 +282,8 @@ h3 {
   border-radius: 5px;
   color: white;
   text-transform: uppercase;
-  padding: 5px 10px;
+  padding: 6px 10px 5px 10px;
+  line-height: 1.0;
 }
 
 .btn-primary {
@@ -389,7 +392,7 @@ header {
     .date-temperature {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 10px;
       width: fit-content;
 
       img {
@@ -492,7 +495,7 @@ header {
         align-items: center;
         border: 1px solid #fff;
         border-radius: 4px;
-        padding: 2px 10px;
+        padding: 4px 14px;
 
         input {
           outline: none;
@@ -584,15 +587,15 @@ footer {
       h3 {
         text-transform: uppercase;
         font-size: 22px;
-        font-weight: 700;
+        font-weight: 500;
         color: #30472f;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
 
       p {
         font-size: 18px;
         color: #000000;
-        margin-bottom: 22px;
+        margin-bottom: 4px;
         line-height: 1.5;
       }
 
@@ -955,6 +958,11 @@ footer {
     width: 100%;
     color: #fff;
     font-weight: 300 !important;
+
+    h3 {
+      font-size: 20px;
+      text-transform: uppercase;
+    }
 
     .social-icons {
       display: flex;

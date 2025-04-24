@@ -152,7 +152,7 @@
     </div>
     <div class="related-posts">
         <div class="container">
-            <h2>DAS KÖNNTE SIE AUCH INTERESSIEREN</h2>
+            <h2>Das könnte Sie auch interessieren</h2>
             <div class="related-posts__inner">
                 <?php
                 $related_posts = get_field('related_posts');
@@ -221,7 +221,7 @@
             </div>
 
             <div class="related-posts__socials">
-                <h3>FOLGE UNS AUF UNSEREN SOCIAL MEDIA KANÄLEN:</h3>
+                <h3>Folge uns auf unseren Social Media Kanälen:</h3>
                 <div class="social-icons">
                     <a href="<?php echo get_field('facebook', 'options'); ?>" target="_blank">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-icon.svg" alt="Facebook">
