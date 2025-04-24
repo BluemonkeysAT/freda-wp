@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 						if (spinner) spinner.style.display = 'none';
 
-						if (!resp || !resp.success || !Array.isArray(resp.votes)) {
+						if (!resp || !resp.success || !Array.isArray(resp.data.votes)) {
 							alert(resp.data?.message || 'Already voted!');
 							inputs.forEach(input => input.disabled = false);
 							return;

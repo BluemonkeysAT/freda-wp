@@ -135,7 +135,7 @@
             },
                 pollData.map((item, qIndex) =>
                     wp.element.createElement('div', { className: 'poll-question', key: qIndex },
-                        wp.element.createElement('h4', {}, item.question),
+                        wp.element.createElement('h4', {title: item.question}, item.question),
                         wp.element.createElement('form', {
                             className: 'poll-form',
                             'data-q-index': qIndex
@@ -145,7 +145,7 @@
                                     className: 'poll-option',
                                     style: { display: 'flex', alignItems: 'center', gap: '10px' }
                                 },
-                                    wp.element.createElement('label', {},
+                                    wp.element.createElement('label', {title: opt, key: oIndex},
                                         wp.element.createElement('input', {
                                             type: 'radio',
                                             name: `poll-question-${qIndex}`,

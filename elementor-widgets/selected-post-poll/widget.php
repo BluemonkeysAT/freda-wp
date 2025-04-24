@@ -108,21 +108,14 @@ class SelectPostPoll extends Widget_Base {
             
             $poll_data = get_post_meta($post->ID, 'freda_poll_data', true);
 
-
-            if (!empty($poll_data)) {
-                foreach ($poll_data as $poll) {
-                    echo '<div class="poll-question-block">';
-                    echo '<h4>' . esc_html($poll['question']) . '</h4>';
-                    echo '<ul class="poll-options">';
-                    foreach ($poll['options'] as $option) {
-                        echo '<li>' . esc_html($option) . '</li>';
-                    }
-                    echo '</ul>';
-                    echo '</div>';
-                }
+            $has_poll = has_block('freda-custom-widgets/freda-post-poll', $post->post_content);
+            if ($has_poll) {
+                $content = apply_filters('the_content', $post->post_content);
+                echo do_blocks($content);
             } else {
-                echo '<p>No poll available for this post.</p>';
-            }
+                echo '<p>No poll block found in this post.</p>';
+            } 
+            
             echo '</div>';
         echo '</div>'; 
         echo '</div>'; 
