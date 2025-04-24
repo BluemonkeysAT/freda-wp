@@ -11,7 +11,7 @@
         <div class="container">
             <div class="date-temperature">
                 <p class="current-date"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/calendar-icon.svg" alt="calendar icon"><?php echo date('l, F j, Y'); ?></p>
-                
+
                     <?php
                     $weather = get_option('swd_weather');
 
@@ -43,9 +43,9 @@
                     <button type="submit" class="search-button"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/search-icon.svg" alt="search icon"></button>
                 </form>
                 <div class="social-icons">
+                    <a href="https://www.instagram.com/freda_magazin/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-icon.svg" alt="Instagram"></a>
                     <a href="https://www.facebook.com/fredamagazine" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-icon.svg" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/fredamagazine/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-icon.svg" alt="Instagram"></a>
-                    <a href="https://www.pinterest.at/fredamagazine/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-icon.svg" alt="X"></a>
+                    <a href="https://www.tiktok.com/@freda_magazin" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-icon.svg" alt="Tiktok"></a>
                 </div>
             </div>
         </div>

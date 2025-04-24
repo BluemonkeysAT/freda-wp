@@ -346,20 +346,33 @@ header {
 
     li {
       cursor: pointer;
-      padding: 7px 70px;
-      background-color: #fff;
+      padding: 0;
       border: 1px solid #fff;
       border-radius: 4px;
+      background-color: #fff;
+      transition: box-shadow 0.3s ease;
+
+      &:hover,
+      &:active,
+      &.current-menu-item,
+      &.current_page_item {
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
+      }
 
       a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 7px 70px;
         text-decoration: none;
         color: #000000;
         font-size: 19px;
         font-weight: 500;
         transition: all 0.3s ease;
+        border-radius: 4px;
 
         &:hover {
-          opacity: 0.7;
+          opacity: 0.8;
         }
       }
     }
@@ -380,8 +393,9 @@ header {
       width: fit-content;
 
       img {
-        width: 15px;
-        height: 16px;
+        width: 18px;
+        height: 20px;
+        margin-top: -1px;
       }
 
       p {
@@ -402,7 +416,7 @@ header {
     .weather-icon svg {
       width: 20px;
       height: 20px;
-      stroke: #fff; /* or any color you want */
+      stroke: #ffffff;
       stroke-width: 2;
     }
 
@@ -516,8 +530,11 @@ header {
       p {
         color: #000000;
       }
+      .weather-icon svg {
+        stroke: #000000;
+      }
 
-      form {
+        form {
         border: 1px solid #000;
 
         input {
