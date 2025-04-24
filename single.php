@@ -47,14 +47,14 @@
                     </button>
                 </form>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/fredamagazine" target="_blank">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-green.svg" alt="Facebook">
-                    </a>
-                    <a href="https://www.instagram.com/fredamagazine/" target="_blank">
+                    <a href="<?php echo get_field('instagram', 'options'); ?>" target="_blank">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-green-icon.svg" alt="Instagram">
                     </a>
-                    <a href="https://www.pinterest.at/fredamagazine/" target="_blank">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-green.svg" alt="X">
+                    <a href="<?php echo get_field('facebook', 'options'); ?>" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-green.svg" alt="Facebook">
+                    </a>
+                    <a href="<?php echo get_field('tiktok', 'options'); ?>" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="TikTok">
                     </a>
                 </div>
             </div>

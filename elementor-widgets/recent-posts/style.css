@@ -50,6 +50,7 @@
             position: absolute;
             bottom: 15px;
             left: 15px;
+            right: 15px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -67,6 +68,7 @@
                 font-size: 18px;
                 font-weight: 300;
                 font-family: 'GothamNarrow-Light', sans-serif;
+                line-height: 1.4;
             }
         }
     }
