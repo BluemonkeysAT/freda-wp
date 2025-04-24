@@ -100,6 +100,9 @@ class RecentPosts extends Widget_Base {
                     echo '<div class="post-info">';
                     echo '<h3 class="post-title">' . get_the_title() . '</h3>';
                     echo '<p class="post-excerpt">' . get_the_excerpt() . '</p>';
+                    echo '<a href="' . get_permalink() . '" class="post-action">';
+                        echo '<img src="' . esc_url(get_template_directory_uri() . '/assets/icons/arrow-right-black.svg') . '" alt="Arrow Right" />';
+                    echo '</a>';
                     echo '</div>';
                 echo '</a>';
                 echo '</div>';
@@ -132,6 +135,7 @@ class RecentPosts extends Widget_Base {
                     '</a>';
                 }
                 echo '<h3 class="post-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
+                echo '<p class="post-excerpt">' . get_the_excerpt() . '</p>';
                 echo '</div>';
                 echo '</div>';
                 $counter++;

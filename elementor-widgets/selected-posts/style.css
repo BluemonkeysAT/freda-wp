@@ -68,3 +68,40 @@
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .selected-posts {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .selected-posts {
+        grid-template-columns: 1fr;
+
+        .post-item {
+            background: #F3F2EA;
+            padding-bottom: 20px;
+            border-radius: 8px;
+
+            .thumbnail-wrapper {
+                border: none;
+            }
+
+            .post-title {
+                font-size: 20px;
+                padding: 0 20px;
+            }
+
+            .post-excerpt {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            .post-category {
+                font-size: 15px;
+            }
+        }
+    }
+}
