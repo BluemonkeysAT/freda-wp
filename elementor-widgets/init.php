@@ -22,5 +22,10 @@ function register_custom_elementor_widgets($widgets_manager) {
     require_once get_template_directory() . '/elementor-widgets/categories-cards/categories-cards.php';
     wp_enqueue_style('categories-cards-style', get_template_directory_uri() . '/elementor-widgets/categories-cards/style.css');
     $widgets_manager->register(new \FredaMagazin\CategoriesCards());
+
+    // Selected Post with Poll Widget
+    require_once get_template_directory() . '/elementor-widgets/selected-post-poll/widget.php';
+    wp_enqueue_style('selected-post-poll-style', get_template_directory_uri() . '/elementor-widgets/selected-post-poll/style.css');
+    $widgets_manager->register(new \FredaMagazin\SelectPostPoll());
 }
 add_action('elementor/widgets/register', 'register_custom_elementor_widgets');
