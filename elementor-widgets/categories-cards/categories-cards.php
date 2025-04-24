@@ -86,7 +86,7 @@ class CategoriesCards extends Widget_Base {
 
             echo '<figure class="category-icon" style="background-color:' . esc_attr($background_color) . '">';
                 if ($category_icon) {
-                    echo '<img src="' . esc_url($category_icon) . '" alt="' . esc_attr($category->name) . '" />';
+                    echo '<img class="category-img" src="' . esc_url($category_icon) . '" alt="' . esc_attr($category->name) . '" />';
                 }
             echo '</figure>';
 
