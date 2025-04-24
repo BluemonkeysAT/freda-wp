@@ -223,19 +223,19 @@
             <div class="related-posts__socials">
                 <h3>FOLGE UNS AUF UNSEREN SOCIAL MEDIA KANÄLEN:</h3>
                 <div class="social-icons">
-                    <a href="#" target="_blank">
+                    <a href="<?php echo get_field('facebook', 'options'); ?>" target="_blank">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-icon.svg" alt="Facebook">
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="<?php echo get_field('instagram', 'options'); ?>" target="_blank">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-icon.svg" alt="Instagram">
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="<?php echo get_field('x', 'options'); ?>" target="_blank">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-icon.svg" alt="X">
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="<?php echo get_field('tiktok', 'options'); ?>" target="_blank">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-icon.svg" alt="TikTok">
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="<?php echo get_field('youtube', 'options'); ?>" target="_blank">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-icon.svg" alt="YouTube">
                     </a>
                 </div>

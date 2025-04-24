@@ -112,8 +112,6 @@ class SelectPostPoll extends Widget_Base {
             if ($has_poll) {
                 $content = apply_filters('the_content', $post->post_content);
                 echo do_blocks($content);
-            } else {
-                echo '<p>No poll block found in this post.</p>';
             } 
             
             echo '</div>';
