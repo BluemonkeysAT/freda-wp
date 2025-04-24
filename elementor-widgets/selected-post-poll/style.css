@@ -124,6 +124,10 @@
             }
         }
 
+        .poll-thankyou {
+            color: #fff;
+        }
+
         h4 {
           color: #fff;
           font-size: 25px;

@@ -108,11 +108,13 @@ class SelectPostPoll extends Widget_Base {
             
             $poll_data = get_post_meta($post->ID, 'freda_poll_data', true);
 
-            $has_poll = has_block('freda-custom-widgets/freda-post-poll', $post->post_content);
-            if ($has_poll) {
-                $content = apply_filters('the_content', $post->post_content);
-                echo do_blocks($content);
-            } 
+            $blocks = parse_blocks($post->post_content);
+            foreach ($blocks as $block) {
+                if ($block['blockName'] === 'freda-custom-widgets/freda-post-poll') {
+                    echo render_block($block);
+                    break;
+                }
+            }
             
             echo '</div>';
         echo '</div>'; 
