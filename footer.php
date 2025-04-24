@@ -28,11 +28,11 @@
     </div>
     <div class="copyright">
         <div class="socials">
-            <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-green.svg" alt="facebook" /></a>
-            <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-green-icon.svg" alt="instagram" /></a>
-            <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="tiktok" /></a>
-            <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-green.svg" alt="x" /></a>
-            <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-green.svg" alt="youtube" /></a>
+            <a href="<?php echo get_field('facebook', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-green.svg" alt="facebook" /></a>
+            <a href="<?php echo get_field('instagram', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-green-icon.svg" alt="instagram" /></a>
+            <a href="<?php echo get_field('tiktok', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="tiktok" /></a>
+            <a href="<?php echo get_field('x', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-green.svg" alt="x" /></a>
+            <a href="<?php echo get_field('youtube', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-green.svg" alt="youtube" /></a>
         </div>
         <a href="" class="btn-lightgreen freda-a">
             Zur FREDA Akademie
