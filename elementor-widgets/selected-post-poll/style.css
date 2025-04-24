@@ -1,0 +1,113 @@
+.selected-post-poll {
+    width: 100%;
+    height: 377px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 63px 0 40px 0;
+    overflow: hidden;
+
+
+    &:hover {
+        .post-thumbnail {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .post-thumbnail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        &:after {
+            content:'';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 80%;
+            background: linear-gradient(to top, #000000d1, #00000000);
+            border-radius: 8px;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all .5s ease;
+            
+        }
+    }
+
+    .container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr .5fr;
+        gap: 160px;
+
+        .post-info {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: flex-start;
+
+            .post-title {
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 1.2;
+                text-transform: uppercase;
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+
+            .post-excerpt {
+                font-size: 18px;
+                color: #fff;
+                line-height: 1.5;
+            }
+        }
+
+        .post-poll {
+            background-color: #000000B2;
+            border-radius: 8px;
+            padding: 20px;
+            
+
+            .poll-question-block {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h4 {
+                    color: #fff;
+                    font-size: 25px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    text-align: center;
+                }
+
+                ul {
+                    li {
+                        padding: 10px;
+                        border-radius: 8px;
+                        background-color: #FFFFFF;
+                        font-size: 17px;
+                        font-weight: 400;
+                        color: #000;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
