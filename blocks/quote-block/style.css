@@ -1,30 +1,32 @@
 .quote-block {
-    background: #fff;
+    background:rgba(255, 255, 255, 0.5);
     border-radius: 8px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    max-width: 600px;
-    margin: 20px 0;
+    padding: 20px 20px 10px 20px;
+    margin: 50px 0 20px 0;
+    position: relative;
+
+    .quote-icon {
+        color: #30472F;
+        margin-bottom: 14px;
+        display: block;
+        height: fit-content;
+        margin-top: -35px !important;
+        width: 63px !important;
+    }
+    
+    .quote-text {
+        font-size: 20px;
+        font-weight: 500;
+        color: #000;
+        margin-bottom: 10px;
+    }
+    
+    .quote-author {
+        font-size: 17px;
+        font-weight: bold;
+        color: #30472F !important;
+        text-transform: uppercase;
+        margin: 0;
+    }
 }
 
-.quote-icon {
-    font-size: 80px;
-    color: #30472F;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.quote-text {
-    font-size: 20px;
-    font-weight: 500;
-    color: #000;
-    margin-bottom: 10px;
-}
-
-.quote-author {
-    font-size: 17px;
-    font-weight: bold;
-    color: #30472F;
-    text-transform: uppercase;
-    margin: 0;
-}

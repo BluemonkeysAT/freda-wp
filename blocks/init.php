@@ -39,21 +39,30 @@ function freda_register_all_blocks_inline() {
             $args['render_callback'] = function () {
                 $post_id = get_the_ID();
                 $tags = get_the_tags($post_id);
-
+        
                 if (!is_array($tags) || empty($tags)) {
                     return '';
                 }
-
+        
                 $output = '<div class="freda-tag-list">';
+        
                 foreach ($tags as $tag) {
-                    $output .= esc_html($tag->name) . ', ';
+                    $tag_link = get_tag_link($tag->term_id);
+                    $tag_name = esc_html($tag->name);
+        
+                    $output .= sprintf(
+                        '<a href="%s" class="freda-tag">#%s</a> ',
+                        esc_url($tag_link),
+                        $tag_name
+                    );
                 }
-                $output = rtrim($output, ', ');
+        
                 $output .= '</div>';
-
+        
                 return $output;
             };
         }
+        
 
         register_block_type("freda/$block_name", $args);
     }

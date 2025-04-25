@@ -146,6 +146,12 @@
       }
     }
 
+    .poll-percentage {
+      font-weight: 700;
+      font-size: 18px;
+      color: #000;
+    }
+
     .voted-option {
       label {
         background: #30472f;

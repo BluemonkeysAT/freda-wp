@@ -6,7 +6,7 @@
 	blocks.registerBlockType('freda-custom-widgets/freda-post-poll', {
 		title: 'Post Poll',
 		icon: 'analytics',
-		category: 'widgets',
+		category: 'common',
 		attributes: {
 			pollData: {
 				type: 'array',

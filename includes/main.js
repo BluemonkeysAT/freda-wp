@@ -8,12 +8,4 @@ if (headerMobile) {
         headerMobileButton.classList.toggle('active');
         headerMobile.classList.toggle('active');
     });
-    
-
-    // document.addEventListener('click', function(event) {
-    //     if (!headerMobile.contains(event.target) && headerMobileMenu.classList.contains('active')) {
-    //         headerMobileMenu.classList.remove('active');
-    //         headerMobileButton.classList.remove('active');
-    //     }
-    // });
 }

@@ -1,13 +1,17 @@
 .freda-tag-list {
-    font-style: italic;
-    font-size: 16px;
-    font-weight: 300;
-    background: #fff;
+    background:rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     padding: 20px;
-    border: 1px solid #ccc;
-    max-width: 600px;
     margin: 20px 0;
+
+    a {
+        font-style: italic !important;
+        line-height: 2;
+        font-size: 16px !important;
+        font-weight: 300 !important;
+        text-decoration: none !important;
+        margin-right: 5px;
+    }
 }
 
 .tag-list-block-preview {

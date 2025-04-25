@@ -5,17 +5,16 @@
     registerBlockType('freda/tag-list-block', {
         title: 'Tag List',
         icon: 'tag',
-        category: 'widgets',
+        category: 'common',
         edit: function () {
             return el(
                 'div',
-                { className: 'tag-list-block-preview' },
-                el('span', { className: 'quote-icon' }, '🏷️'),
-                el('p', {}, 'Tags will be shown on the frontend.')
+                { className: 'tag-list-block-editor' },
+                el('p', {}, 'Post tags will be displayed here.')
             );
         },
         save: function () {
-            return null; // Rendered dynamically in PHP
+            return null;
         }
     });
 })(window.wp.blocks, window.wp.element);

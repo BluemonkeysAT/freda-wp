@@ -393,5 +393,3 @@ add_filter('block_categories_all', function ($categories) {
     );
 });
 
-
-

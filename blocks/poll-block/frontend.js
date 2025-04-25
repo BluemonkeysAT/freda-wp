@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
 					})
 					.then(r => r.json())
 					.then(resp => {
-						console.log('[AJAX] Full response:', resp);
 
 						if (spinner) spinner.style.display = 'none';
 
@@ -82,8 +81,8 @@ function showPercentages(votesArray, qIndex, poll) {
 
 	votesArray.forEach((count, oIndex) => {
 		const percent = totalVotes > 0
-			? ((count / totalVotes) * 100).toFixed(1)
-			: '0.0';
+			? ((count / totalVotes) * 100).toFixed(0)
+			: '0';
 
 		const span = poll.querySelector(`.poll-percentage[data-q-index="${qIndex}"][data-o-index="${oIndex}"]`);
 		if (span) {

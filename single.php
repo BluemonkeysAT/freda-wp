@@ -154,13 +154,26 @@
         <?php if (has_post_thumbnail()) : ?>
             <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>" class="featured-image">
         <?php endif; ?>
+        <?php
+                $categories = get_the_category();
+                if (!empty($categories)) {
+                    $categoryBackground = get_field('background_color', 'category_' . $categories[0]->term_id);
+                    $categoryTextColor = get_field('text_color', 'category_' . $categories[0]->term_id);
+                    echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" class="post-category" style="background-color:' . esc_attr($categoryBackground) . '; color:' . esc_attr($categoryTextColor) . ';">' . esc_html($categories[0]->name) . '</a>';
+                }
+        ?>
     </div>
     
     <?php
         $post = get_post();
         setup_postdata($post); 
         
-        $authorName = get_the_author(); 
+        $authorName = get_the_author();
+        $authorID = get_the_author_meta('ID');
+        $authorAvatar = get_avatar($authorID, 96);
+        $authorDescription = get_the_author_meta('description', $authorID);
+        $authorLink = get_author_posts_url($authorID);
+        $authorEmail = get_the_author_meta('user_email', $authorID);
     ?>
 
     <div class="post-content">
@@ -181,7 +194,9 @@
                 <div class="post-meta">
                     <p class="post-author">
                         <?php 
-                        echo '<img src="' . get_template_directory_uri() . '/assets/icons/user-icon.svg" alt="author icon" /> ' . $authorName;
+                        echo '<img src="' . get_template_directory_uri() . '/assets/icons/user-icon.svg" alt="author icon" /> ';
+                        echo '<a href="' . esc_url($authorLink) . '" class="button"> ' . esc_html($authorName) . '</a>';
+                   
                         ?>
                     </p>
                     <p class="post-date">
@@ -197,6 +212,23 @@
                         ?>
                     </p>
                 </div>
+                <div class="post-share-buttons">
+                    <div class="share-buttons">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button facebook">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-icon.svg" alt="Facebook">
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" target="_blank" class="share-button twitter">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-icon.svg" alt="Twitter">
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://www.whatsapp.com/share?text=<?php echo urlencode(get_the_title()); ?> <?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button linkedin">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/whatsapp-icon.svg" alt="WhatsApp">
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+                
             </div>
             <div class="post-text">
                 <?php
@@ -204,24 +236,58 @@
                 ?>
             </div>
             </div>
-            <div class="post-author">
+            <div class="post-sticky-wrapper">
                 <div class="post-author__inner">
-                    <div class="post-author__image">
-                        <?php echo get_avatar(get_the_author_meta('ID'), 96); ?>
-                    </div>
                     <div class="post-author__info">
+                        <h3>Über den Autor</h3>
+                        <div class="post-author__image">
+                            <?php echo get_avatar($authorAvatar); ?>
+                        </div>
                         <p class="post-author__name"><?php echo esc_html($authorName); ?></p>
-                        <p class="post-author__bio"><?php echo esc_html(get_the_author_meta('description')); ?></p>
+                        <p class="post-author__bio">
+                            <?php echo esc_html($authorDescription); ?>
+                         </p>
+                         <p class="post-author__link">
+                            <a href="mailto:<?php echo esc_attr($authorEmail); ?>">
+                                <span>Mehr Erfahren</span> 
+                                <img src="<?php echo get_template_directory_uri();?>/assets/icons/arrow-right-green.svg" alt="arrow right" />
+                            </a>
+                        </p>
                     </div>
+                    
                 </div>
                 <div class="post-related-categories">
-                    <h3>Ähnliche Kategorien</h3>
+                    
                     <ul>
                         <?php
-                        $related_categories = get_the_category();
-                        if (!empty($related_categories)) {
+                        $related_categories = get_terms(array(
+                            'taxonomy' => 'category',
+                            'number'   => 4,
+                            'orderby'  => 'count',
+                            'order'    => 'DESC',
+                            'hide_empty' => false,
+                        ));
+
+                        if (!empty($related_categories) && !is_wp_error($related_categories)) {
                             foreach ($related_categories as $category) {
-                                echo '<li><a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></li>';
+                                $featured_image = get_field('featured_image', 'category_' . $category->term_id);
+                                $icon = get_field('icon', 'category_' . $category->term_id);
+                                $backgroundColor = get_field('background_color', 'category_' . $category->term_id);
+                                
+                                
+                                echo '<li>';
+                                echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">';
+                                if ($featured_image) {
+                                    echo '<img src="' . esc_url($featured_image) . '" alt="' . esc_attr($category->name) . '" class="category-featured-image" />';
+                                }
+                                if ($icon) {
+                                    echo '<figure class="category-icon" style="background-color:'. $backgroundColor . '">';
+                                    echo '<img src="' . esc_url($icon) . '" alt="' . esc_attr($category->name) . '" class="category-icon" />';
+                                    echo '</figure>';
+                                }
+                                echo '<span class="title">'. esc_html($category->name) . '</span>';
+                                echo '</a>';
+                                echo '</li>';
                             }
                         }
                         ?>
