@@ -102,7 +102,7 @@
                             if ($category instanceof WP_Term) {
                                 $category_background = get_field('background_color', 'category_' . $category->term_id);
 
-                                $icon_id = get_field('category_icon', 'category_' . $category->term_id);
+                                $icon_id = get_field('icon', 'category_' . $category->term_id);
                                 $icon_url = wp_get_attachment_image_url($icon_id, 'full');
 
                                 if ($icon_url) {
