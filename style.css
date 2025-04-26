@@ -17,6 +17,7 @@
     format("otf");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -25,6 +26,7 @@
     format("otf");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 * {

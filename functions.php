@@ -393,6 +393,7 @@ add_filter('block_categories_all', function ($categories) {
     );
 });
 
+//Move jquery to the footer
 function move_jquery_to_footer() {
     if (!is_admin()) {
         wp_deregister_script('jquery');
@@ -401,3 +402,11 @@ function move_jquery_to_footer() {
     }
 }
 add_action('wp_enqueue_scripts', 'move_jquery_to_footer');
+
+// Dequeue Dashicons for non-logged-in users
+function dequeue_dashicons_everywhere() {
+    if (!is_user_logged_in()) {
+        wp_dequeue_style('dashicons');
+    }
+}
+add_action('wp_enqueue_scripts', 'dequeue_dashicons_everywhere', 100);
