@@ -139,11 +139,10 @@
                     <ul>
                         <?php
                         $related_categories = get_terms(array(
-                            'taxonomy' => 'category',
-                            'number'   => 4,
-                            'orderby'  => 'count',
-                            'order'    => 'DESC',
-                            'hide_empty' => false,
+                            'taxonomy'   => 'category',
+                            'include'    => array(4, 1771, 1772, 1773),
+                            'orderby'    => 'include',
+                            'hide_empty' => false
                         ));
 
                         if (!empty($related_categories) && !is_wp_error($related_categories)) {
