@@ -1650,7 +1650,7 @@ footer {
 
 @media screen and (max-width: 768px) {
   .category-recent-posts {
-    padding: 40px 0;
+    padding: 40px 20px;
 
     h2 {
       font-size: 30px;
