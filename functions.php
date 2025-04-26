@@ -393,15 +393,15 @@ add_filter('block_categories_all', function ($categories) {
     );
 });
 
-//Move jquery to the footer
+// Move jQuery to the footer
 function move_jquery_to_footer() {
-    if (!is_admin()) {
-        wp_deregister_script('jquery');
-        wp_register_script('jquery', includes_url('/js/jquery/jquery.min.js'), false, NULL, true);
-        wp_enqueue_script('jquery');
+    if ( ! is_admin() ) {
+        wp_deregister_script( 'jquery' );
+        wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.min.js' ), [], null, true );
+        wp_enqueue_script( 'jquery' );
     }
 }
-add_action('wp_enqueue_scripts', 'move_jquery_to_footer');
+add_action( 'wp_enqueue_scripts', 'move_jquery_to_footer' );
 
 // Dequeue Dashicons for non-logged-in users
 function dequeue_dashicons_everywhere() {
