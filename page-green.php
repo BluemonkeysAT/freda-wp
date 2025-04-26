@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Green Layout
+ * Template Name: Freda Elementor Default
  */
 $GLOBALS['is_green_layout'] = true;
 get_header();

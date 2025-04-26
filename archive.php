@@ -6,9 +6,10 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php $GLOBALS['is_green_layout'] = true; ?>
 <?php get_header(); ?>
 
-    <main>
+<main>
 
     <?php get_template_part('template-parts/archive-hero'); ?>
     
