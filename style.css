@@ -643,7 +643,8 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
+  padding: 0 20px;
 
   nav {
     width: 100%;
@@ -699,7 +700,7 @@ header {
     grid-template-columns: 0.3fr 1fr 0.3fr;
     align-items: center;
     padding: 20px 0;
-    gap: 36px;
+    gap: 26px;
 
     .date-temperature {
       display: flex;
@@ -771,6 +772,10 @@ header {
         height: 2px;
         background-color: #fff;
       }
+
+        img {
+          width: fit-content;
+        }
 
       &.green {
         img {
@@ -926,6 +931,14 @@ header {
           }
         }
 
+        &.green {
+          button {
+            span {
+              background: #000;
+            }
+          }
+        }
+
         &.active {
           position: fixed;
           top: 45px;
@@ -959,7 +972,7 @@ header {
         bottom: 0;
         background: #fff;
         display: none;
-        padding: 24px;
+        padding: 23px 20px 20px 20px;
         flex-direction: column;
         gap: 24px;
 
@@ -1163,7 +1176,7 @@ footer {
     width: 100%;
     border-top: 1px solid #000000;
     margin-top: 24px;
-    padding-top: 24px;
+    padding: 24px 20px 0 20px;
 
     .socials {
       display: flex;
