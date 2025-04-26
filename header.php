@@ -79,7 +79,7 @@
                     </a>
                 </div>
                 <form method="post" action="<?php echo esc_url(home_url('/')); ?>" class="search-form">
-                    <input type="text" placeholder="Suche" class="search-input">
+                    <input type="text" name="s" placeholder="Suche" class="search-input">
                     <button type="submit" class="search-button"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/search-icon-black.svg" alt="search icon"></button>
                 </form>
                
