@@ -12,7 +12,8 @@
             <div class="date-temperature<?php echo (!empty($GLOBALS['is_green_layout']) ? ' green' : ''); ?>">
                 <p class="current-date">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'calendar-icon-black.svg' : 'calendar-icon.svg'); ?>" alt="calendar icon">
-                    <?php echo date('l, F j, Y'); ?></p>
+                    <?php setlocale(LC_TIME, 'de_DE.UTF-8'); echo strftime('%A %d.%B %Y'); ?>
+                </p>
 
                     <?php
                     $weather = get_option('swd_weather');

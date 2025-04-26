@@ -1438,6 +1438,7 @@ footer {
     h1 {
       color: #ffffff;
       margin-bottom: 15px;
+      font-weight: 600;
     }
 
     .archive-hero-heading__inner {
@@ -1643,6 +1644,7 @@ footer {
 
   h2 {
     text-transform: uppercase;
+    font-weight: 600;
   }
 }
 
