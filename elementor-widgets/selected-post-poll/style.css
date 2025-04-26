@@ -241,3 +241,23 @@
     }
   }
 }
+
+@media screen and (max-width: 414px) {
+  .selected-post-poll {
+    .container {
+      .poll-frontend {
+        max-width: 375px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .selected-post-poll {
+    .container {
+      .poll-frontend {
+        max-width: 335px;
+      }
+    }
+  }
+}
