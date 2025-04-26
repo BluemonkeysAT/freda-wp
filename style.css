@@ -1105,10 +1105,10 @@ header {
             &:nth-child(3),
             &:nth-child(4) {
               a {
-                font-weight: 700;
+                font-weight: 600;
               }
               .item-title {
-                  font-weight: 700!important;
+                  font-weight: 600!important;
                   color: #000!important;
               }
             }
@@ -1118,7 +1118,7 @@ header {
               justify-content: space-between;
               align-items: center;
               font-size: 20px;
-              font-weight: 700;
+              font-weight: 600;
               color: #000;
 
               .category-icon-wrapper {
