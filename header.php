@@ -102,12 +102,11 @@
                             if ($category instanceof WP_Term) {
                                 $category_background = get_field('background_color', 'category_' . $category->term_id);
 
-                                $icon_id = get_field('icon', 'category_' . $category->term_id);
-                                $icon_url = wp_get_attachment_image_url($icon_id, 'full');
+                                $icon_field = get_field('icon', 'category_' . $category->term_id);
 
-                                if ($icon_url) {
+                                if ($icon_field) {
                                     $icon_html = '<figure class="category-icon-wrapper" style="background-color: ' . esc_attr($category_background) . ';">';
-                                    $icon_html .= '<img src="' . esc_url($icon_url) . '" alt="' . esc_attr($item->title) . ' icon" class="category-icon" />';
+                                    $icon_html .= '<img src="' . esc_url($icon_field) . '" alt="' . esc_attr($item->title) . ' icon" class="category-icon" />';
                                     $icon_html .= '</figure>';
                                 } else {
                                     $icon_html = '<figure class="category-icon-wrapper" style="background-color: ' . esc_attr($category_background) . ';">';
