@@ -67,14 +67,14 @@ class SelectPostPoll extends Widget_Base {
         $post_id = intval($settings['post']);
         
         if (!$post_id) {
-            echo '<p>Please select a post with a poll.</p>';
+            echo '<p>Bitte einen Post/Artikel für den Poll auswählen</p>';
             return;
         }
         
         global $post;
         $post = get_post($post_id);
         if (!$post) {
-            echo '<p>Post not found.</p>';
+            echo '<p>Post nicht gefunden.</p>';
             return;
         }
 

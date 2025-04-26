@@ -12,7 +12,7 @@
 <div class="search-results-wrapper">
     <div class="container">
     <h1 class="search-title">
-        <?php printf( esc_html__( 'Search Results for: %s', 'freda-magazine' ), get_search_query() ); ?>
+        <?php printf( esc_html__( 'Suchergenisse für: %s', 'freda-magazine' ), get_search_query() ); ?>
     </h1>
 
     <?php if ( have_posts() ) : ?>
@@ -49,15 +49,15 @@
         <div class="pagination">
             <?php
             the_posts_pagination( array(
-                'prev_text' => esc_html__( 'Previous', 'freda-magazine' ),
-                'next_text' => esc_html__( 'Next', 'freda-magazine' ),
+                'prev_text' => esc_html__( 'Zurück', 'freda-magazine' ),
+                'next_text' => esc_html__( 'Weiter', 'freda-magazine' ),
             ) );
             ?>
         </div>
     <?php else : ?>
         <div class="no-results">
-            <h2><?php esc_html_e( 'Nothing Found', 'freda-magazine' ); ?></h2>
-            <p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with different keywords.', 'freda-magazine' ); ?></p>
+            <h2><?php esc_html_e( 'Keine Ergebnisse', 'freda-magazine' ); ?></h2>
+            <p><?php esc_html_e( 'Entschuldigung, aber zu deinen Suchbegriffen wurde nichts gefunden. Bitte versuche es mit anderen Stichwörtern.', 'freda-magazine' ); ?></p>
             <?php get_search_form(); ?>
         </div>
     <?php endif; ?>

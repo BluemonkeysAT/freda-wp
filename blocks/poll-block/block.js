@@ -192,7 +192,7 @@
                             className: 'poll-thankyou',
                             'data-q-index': qIndex,
                             style: { display: 'none', marginTop: '10px', fontStyle: 'italic' }
-                        }, 'Thank you for voting!')
+                        }, 'Vielen Dank für deine Stimme!')
                         
                     )
                 )
