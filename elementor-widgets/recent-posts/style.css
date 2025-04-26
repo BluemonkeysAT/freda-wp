@@ -32,6 +32,8 @@
         .featured-post-thumbnail {
             height: 100%;
             width: 100%;
+            position: relative;
+            z-index: 1;
 
             img {
                 height: 100% !important;
@@ -55,6 +57,7 @@
             flex-direction: column;
             gap: 10px;
             z-index: 1;
+            pointer-events: none;
 
             h3 {
                 color: #fff;
@@ -172,8 +175,6 @@
                 z-index: 1;
                 bottom: -127px;
                 left: 20px;
-
-                
 
                 .post-title {
                     font-size: 24px;

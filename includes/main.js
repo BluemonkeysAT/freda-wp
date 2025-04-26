@@ -45,3 +45,16 @@ if (inputElement && siteLogo) {
         }
     });
 }
+
+const postShareButtonsWrapper = document.querySelector('.post-share-sticky-btns');
+
+if (postShareButtonsWrapper) {
+    postShareButtonsWrapper.addEventListener('mouseenter', () => {
+        postShareButtonsWrapper.classList.toggle('sticky-btns-hover');
+    });
+    
+    postShareButtonsWrapper.addEventListener('mouseleave', () => {
+        postShareButtonsWrapper.classList.remove('sticky-btns-hover');
+    });
+}
+
