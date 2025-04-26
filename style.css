@@ -2035,3 +2035,77 @@ footer {
     }
   }
 }
+
+.post-share-sticky-btns {
+  position: fixed;
+  right: 0;
+  top: 30%;
+  z-index: 10;
+  background-color: #30472f;
+  padding:24px 12px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 195px;
+  width: 100%;
+  transform:translateX(77%);
+  transition: all 0.3s ease;
+
+  h3 {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-orientation: mixed;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    pointer-events: none;
+  }
+
+  .share-buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      background-color: #30472f;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 20px;
+      transition: all 0.3s ease;
+
+      span {
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.sticky-btns-hover {
+  transform: translateX(0);
+}
+
+@media screen and (max-width: 1024px) {
+  .post-share-sticky-btns {
+    display: none;
+  }
+}
