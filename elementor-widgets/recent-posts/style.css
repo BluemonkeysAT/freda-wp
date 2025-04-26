@@ -129,6 +129,12 @@
     }
 }
 
+@media screen and (max-width: 1280px) {
+    .recent-posts {
+        padding: 0 20px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .recent-posts {
         grid-template-columns: 1fr;
@@ -138,7 +144,7 @@
 
 @media screen and (max-width: 500px) {
     .recent-posts {
-        padding: 0 20px;
+        padding: 0 10px;
         gap: 150px;
 
 

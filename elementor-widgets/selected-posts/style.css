@@ -69,6 +69,12 @@
     }
 }
 
+@media screen and (max-width: 1280px) {
+    .selected-posts {
+        padding: 0 20px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .selected-posts {
         grid-template-columns: 1fr 1fr;

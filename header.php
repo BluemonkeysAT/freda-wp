@@ -38,8 +38,8 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'freda-logo-green.svg' : 'freda-logo.svg'); ?>" alt="freda-logo">
                 </a>
             <div class="search-social <?php echo (!empty($GLOBALS['is_green_layout']) ? ' green' : ''); ?>">
-                <form method="post" action="<?php echo esc_url(home_url('/')); ?>" class="search-form">
-                    <input type="text" placeholder="Suche" class="search-input">
+                <form method="get" action="<?php echo esc_url(home_url('/')); ?>" class="search-form">
+                    <input type="text" name="s" placeholder="Suche" class="search-input" value="<?php echo get_search_query(); ?>">
                     <button type="submit" class="search-button"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'search-icon-black.svg' : 'search-icon.svg'); ?>" alt="search icon"></button>
                 </form>
                 <div class="social-icons">
@@ -58,7 +58,7 @@
             ?>
         </nav>
     </header>
-    <div class="header-mobile">
+    <div class="header-mobile <?php echo (!empty($GLOBALS['is_green_layout']) ? 'green' : ''); ?>">
         <div class="container">
             <div class="mobile-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>"class="site-logo <?php echo (!empty($GLOBALS['is_green_layout']) ? 'green' : ''); ?>">

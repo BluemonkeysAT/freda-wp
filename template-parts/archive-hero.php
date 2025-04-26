@@ -22,7 +22,8 @@
                     echo '<h1>' . $headline . '</h1>';
                     echo '<div class="archive-hero-heading__inner">';
                      echo '<p>' . $headline_desc . '</p>';
-                     echo '<a href="' . $headline_src . '"><img src="' . get_template_directory_uri() . '/assets/icons/arrow-right.svg" alt="arrow right" /></a>';
+                     echo '<a href="' . $headline_src . '" class="desktop-arrow"><img src="' . get_template_directory_uri() . '/assets/icons/arrow-right.svg" alt="arrow right" /></a>';
+                     echo '<a href="' . $headline_src . '" class="mobile-arrow"><img src="' . get_template_directory_uri() . '/assets/icons/arrow-right-black.svg" alt="arrow right" /></a>';
                     echo '</div>';
                 echo '</div>';
                 
