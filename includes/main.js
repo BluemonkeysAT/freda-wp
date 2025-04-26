@@ -28,3 +28,20 @@ if (headerMobileGreen) {
         }
     });
 }
+
+const inputElement = document.querySelector('header input');
+const siteLogo = document.querySelector('.site-logo');
+
+if (inputElement && siteLogo) {
+    inputElement.addEventListener('click', () => {
+        siteLogo.style.setProperty('--after-width', '150px');
+        inputElement.style.setProperty('--input-width', '170px');
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!inputElement.contains(event.target)) {
+            siteLogo.style.removeProperty('--after-width');
+            inputElement.style.removeProperty('--input-width');
+        }
+    });
+}
