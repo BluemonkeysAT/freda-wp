@@ -1088,7 +1088,7 @@ header {
           width: 100%;
 
           li {
-            padding: 10px 0;
+            padding: 16px 0;
             border-top: 1px solid #e2e0d3;
 
             &:first-child {
@@ -1096,7 +1096,8 @@ header {
             }
 
             &:last-child {
-              padding: 20px 0;
+              padding: 26px 0;
+              border-bottom: 1px solid #e2e0d3;
             }
 
             &:nth-child(1),
@@ -1106,6 +1107,10 @@ header {
               a {
                 font-weight: 700;
               }
+              .item-title {
+                  font-weight: 700!important;
+                  color: #000!important;
+              }
             }
 
             a {
@@ -1113,7 +1118,7 @@ header {
               justify-content: space-between;
               align-items: center;
               font-size: 20px;
-              font-weight: 400;
+              font-weight: 700;
               color: #000;
 
               .category-icon-wrapper {
@@ -1132,7 +1137,8 @@ header {
 
         .search-form {
           width: 100%;
-          padding: 10px 12px;
+          padding: 16px 12px;
+          margin-bottom: -10px;
           background: #f3f2ea;
           border-radius: 8px;
           display: flex;
