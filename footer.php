@@ -2,7 +2,7 @@
 <footer>
     <div class="container">
         <div class="column">
-            <h3>FREDA MAGAZIN</h3>
+            <h2>Freda Magazin</h2>
             <p>Loquaiplatz 12 / Top 4 <br>1060 Wien</p>
             <div class="contact">
                 <a href="tel:+43 (0)1 890 16 80"><span>T</span> +43 (0)1 890 16 80</a>
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="column">
-            <h3>THEMEN</h3>
+            <h2>Themen</h2>
             <nav class="footer-menu">
                 <?php
                     wp_nav_menu(array(
@@ -21,7 +21,7 @@
             </nav>
         </div>
         <div class="column">
-            <h3>Bleiben wir in Kontakt</h3>
+            <h2>Bleiben wir in Kontakt</h2>
             <p>Melde dich für unseren Newsletter an und erhalte regelmäßig spannende Beiträge und News.</p>
             <a href="https://www.freda.at/newsletter/" class="btn-primary">Zur Newsletter Anmeldung</a>
         </div>

@@ -8,6 +8,7 @@ function freda_magazine_custom_logo_setup() {
         'flex-width'  => true,
         'header-text' => array('site-title', 'site-description'),
     ));
+    add_theme_support('title-tag');
 }
 add_action('after_setup_theme', 'freda_magazine_custom_logo_setup');
 
