@@ -35,9 +35,12 @@
     wp_reset_postdata();
 
    if ($query->max_num_pages > 1): ?>
-        <button id="single-cat-load-more" class="btn-primary" data-page="1" data-category="<?php echo esc_attr($current_category->term_id); ?>">
+        <button class="single-cat-load-more btn-primary"
+            data-page="1"
+            data-category="<?php echo esc_attr(get_queried_object_id()); ?>">
             Mehr Laden
         </button>
+
 
         <div id="load-more-spinner" style="display:none;">
             <div class="spinner"></div>

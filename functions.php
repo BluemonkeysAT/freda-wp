@@ -22,11 +22,11 @@ add_filter('upload_mimes', 'freda_magazine_mime_types');
 // Enqueue style.css
 function freda_magazine_enqueue_styles() {
     wp_enqueue_style('freda-magazine-style', get_stylesheet_uri());
-    wp_enqueue_script('freda-magazine-scripts', get_template_directory_uri() . '/includes/main.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'freda_magazine_enqueue_styles');
 
 function freda_enqueue_scripts() {
+    wp_enqueue_script('freda-magazine-scripts', get_template_directory_uri() . '/includes/main.js', array('jquery'), null, true);
     wp_enqueue_script('load-more', get_template_directory_uri() . '/includes/load-more.js', ['jquery'], null, true);
     wp_localize_script('load-more', 'ajax_params', [
         'ajax_url' => admin_url('admin-ajax.php'),
@@ -100,31 +100,43 @@ add_action('wp_ajax_load_more_posts', 'load_more_posts_callback');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts_callback');
 
 function load_more_posts_callback() {
-    $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
-    $category_id = isset($_POST['category']) ? intval($_POST['category']) : 0;
+    $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $category = isset($_POST['category']) ? intval($_POST['category']) : 0;
+    $author = isset($_POST['author']) ? intval($_POST['author']) : 0;
 
-    $query = new WP_Query([
+    $args = array(
+        'paged' => $page,
+        'post_status' => 'publish',
         'posts_per_page' => 6,
-        'paged' => $paged,
-        'cat' => $category_id,
-    ]);
+    );
 
-    ob_start();
+    if (!empty($category)) {
+        $args['cat'] = $category;
+    }
 
-    if ($query->have_posts()) :
-        while ($query->have_posts()) : $query->the_post();
-            get_template_part('template-parts/recent-post-template', 'item');
-        endwhile;
-    endif;
+    if (!empty($author)) {
+        $args['author'] = $author;
+    }
 
-    $html = ob_get_clean();
+    $query = new WP_Query($args);
 
-    wp_send_json([
-        'html' => $html,
-        'max_pages' => $query->max_num_pages,
-        'current_page' => $paged,
-    ]);
+    if ($query->have_posts()) {
+        ob_start();
+        while ($query->have_posts()) {
+            $query->the_post();
+            
+            get_template_part('template-parts/recent-post-template');
+        }
+        wp_send_json_success(array('html' => ob_get_clean()));
+    } else {
+        wp_send_json_error();
+    }
+
+    wp_die();
 }
+
+
+
 
 function register_all_custom_block_widgets() {
     $blocks_dir = get_template_directory() . '/blocks';
