@@ -14,9 +14,11 @@
             echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" class="post-category" style="background-color:' . esc_attr($categoryBackground) . '; color:' . esc_attr($categoryTextColor) . ';">' . esc_html($categories[0]->name) . '</a>';
         }
         ?>
-        <h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <a href="<?php the_permalink(); ?>">
+        <h3 class="post-title"><?php the_title(); ?></h3>
         <div class="post-excerpt">
             <?php the_excerpt(); ?>
         </div>
+        </a>
     </div>
 </div>

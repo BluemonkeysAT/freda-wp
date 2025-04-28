@@ -43,12 +43,15 @@
             top: 15px;
             left: 15px;
             font-weight: 600;
+            font-family: "GothamNarrow-Medium", sans-serif;
         }
 
         .post-title {
             text-transform: uppercase;
             font-size: 25px;
             font-weight: 600;
+            margin-bottom: 12px;
+            font-family: "GothamNarrow-Medium", sans-serif;
             
             a {
                 color: #000000;

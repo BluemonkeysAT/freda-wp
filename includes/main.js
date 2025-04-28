@@ -34,7 +34,7 @@ const siteLogo = document.querySelector('.site-logo');
 
 if (inputElement && siteLogo) {
     inputElement.addEventListener('click', () => {
-        siteLogo.style.setProperty('--after-width', '150px');
+        siteLogo.style.setProperty('--after-width', '142px');
         inputElement.style.setProperty('--input-width', '170px');
     });
 

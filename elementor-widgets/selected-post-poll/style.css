@@ -62,6 +62,9 @@
         font-weight: 600;
         line-height: 1.2;
         text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 12px;
+        font-family: "GothamNarrow-Medium", sans-serif;
 
         a {
           color: #fff;
@@ -73,6 +76,8 @@
         font-size: 18px;
         color: #fff;
         line-height: 1.5;
+        font-family: "GothamNarrow-Light", sans-serif;
+        font-weight: 300;
       }
 
     }
@@ -198,16 +203,16 @@
           top: 156px;
         }
         
+        a {
         .post-title {
-          a {
             color: #000;
             font-size: 24px;
           }
-        }
 
-        .post-excerpt {
-          font-size: 16px;
-          color: #000;
+          .post-excerpt {
+            font-size: 16px;
+            color: #000;
+          }
         }
 
         .post-action {

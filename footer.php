@@ -3,7 +3,7 @@
     <div class="container">
         <div class="column">
             <h2>Freda Magazin</h2>
-            <p>Loquaiplatz 12 / Top 4 <br>1060 Wien</p>
+            <p class="address">Loquaiplatz 12 / Top 4 <br>1060 Wien</p>
             <div class="contact">
                 <a href="tel:+43 (0)1 890 16 80"><span>T</span> +43 (0)1 890 16 80</a>
                 <a href="mailto:redaktion@freda.at"><span>M</span> redaktion@freda.at</a>
