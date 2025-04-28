@@ -2005,6 +2005,39 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    .no-results {
+
+      h2, p {
+        font-family: "GothamNarrow-Light", sans-serif;
+        font-weight: 300;
+      }
+
+      input {
+        margin-top: 15px;
+        font-family: "GothamNarrow-Light", sans-serif;
+        font-weight: 300;
+        color: #000;
+        font-size: 17px;
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 8px;
+        outline: none;
+        border: 1px solid #000;
+        
+        &[type="submit"] {
+          background: #30472F;
+          padding: 10px 20px;
+          color: #fff;
+          font-size: 20px;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
   }
 
   h1 {
@@ -2272,6 +2305,14 @@ footer {
           display: flex;
           flex-direction: column;
           gap: 14px;
+
+          .post-title {
+            margin-bottom: 12px;
+          }
+
+          .post-category {
+            font-weight: 550;
+          }
         }
       }
     }
