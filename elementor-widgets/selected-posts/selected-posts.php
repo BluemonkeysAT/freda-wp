@@ -117,7 +117,7 @@ class SelectPosts extends Widget_Base {
             }
             echo '</a>';
             echo '<h3 class="post-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
-            echo '<p class="post-excerpt">' . get_the_excerpt() . '</p>';
+            echo '<p class="post-excerpt"><a href="' . get_permalink() . '">' . get_the_excerpt() . '</a></p>';
             echo '</div>';
             }
             echo '</div>';
