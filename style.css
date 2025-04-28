@@ -343,6 +343,8 @@ h3 {
           font-size: 18px;
           color: #333;
           font-family: "GothamNarrow-Light", sans-serif;
+          line-height: 1.4;
+          font-weight: 300;
 
           h1,
           h2,
