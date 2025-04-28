@@ -200,7 +200,7 @@
                         }
                         echo '</a>';
                         echo '<h3 class="post-title"><a href="' . get_permalink($related_post->ID) . '">' . get_the_title($related_post->ID) . '</a></h3>';
-                        echo '<p class="post-excerpt"><a href="' . get_permalink($related_post->ID) . '">' . get_the_excerpt($related_post->ID) . '</a></p>';
+                        echo '<p class="post-excerpt">' . get_the_excerpt($related_post->ID) . '</p>';
                         echo '</div>';
                     
                     }
@@ -233,7 +233,7 @@
                             }
                             echo '</a>';
                             echo '<h3 class="post-title"><a href="' . get_permalink($related_post->ID) . '">' . get_the_title($related_post->ID) . '</a></h3>';
-                            echo '<a href="' . get_permalink($related_post->ID) . '"><p class="post-excerpt">' . get_the_excerpt($related_post->ID) . '</a></p>';
+                            echo '<p class="post-excerpt">' . get_the_excerpt($related_post->ID) . '</p>';
                             echo '</div>';
                         }
                         wp_reset_postdata();
