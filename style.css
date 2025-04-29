@@ -1709,11 +1709,11 @@ footer {
       }
 
       .post-title {
-        font-size: 20px;
+        font-size: 20px !important;
       }
 
       .post-excerpt {
-        font-size: 16px;
+        font-size: 16px !important;
       }
     }
   }
@@ -1795,6 +1795,18 @@ footer {
 
       &:after {
         height: 50%;
+      }
+    }
+
+    .archive-hero-content {
+      .archive-hero-heading {
+        h1 {
+          font-size: 24px !important;
+        }
+
+        p {
+          font-size: 16px !important;
+        }
       }
     }
   }
