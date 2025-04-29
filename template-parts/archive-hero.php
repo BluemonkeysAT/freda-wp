@@ -4,32 +4,34 @@
                 $current_category = get_queried_object();
                 $id = $current_category->term_id;
                 $featured_image = get_field('featured_image', 'category_' . $id);
-                $headline = get_field('headline', 'category_' . $id);
-                $headline_desc = get_field('headline_description', 'category_' . $id);
-                $headline_src = get_field('headline_link', 'category_' . $id);
-                $posts = get_field('posts', 'category_' . $id);
+                $featured_post = get_field('featured_archive_post', 'category_' . $id);
                 $backgroundColor = get_field('background_color', 'category_' . $id);
                 $categoryTextColor = get_field('text_color', 'category_' . $id);
-
-                if ($featured_image) {
+                $posts = get_field('posts', 'category_' . $id);
+               
+                if ($featured_post) {
                     echo '<figure>';
-                    echo '<img src="' . esc_url($featured_image) . '" alt="' . esc_attr($current_category->name) . '">';
+                    echo '<img src="' . esc_url(get_the_post_thumbnail_url($featured_post->ID, 'large')) . '" alt="' . esc_attr($featured_post->post_title) . '">';
                     echo '</figure>';
-                }
 
-                echo '<div class="archive-hero-content container">';
+                    echo '<div class="archive-hero-content container">';
                     echo '<div class="archive-hero-heading">';
-                    echo '<h1>' . $headline . '</h1>';
+                    echo '<a href="'. esc_url(get_category_link($current_category)) .'" 
+                    class="post-category archive-hero-cat" style="background-color:'
+                    . $backgroundColor . '; color:' . $categoryTextColor .';">' 
+                    . esc_html($current_category->name) . 
+                    '</a>';
+                    echo '<h1>' . $featured_post->post_title . '</h1>';
                     echo '<div class="archive-hero-heading__inner">';
-                     echo '<p>' . $headline_desc . '</p>';
-                     echo '<a href="' . $headline_src . '" class="desktop-arrow"><img src="' . get_template_directory_uri() . '/assets/icons/arrow-right.svg" alt="arrow right" /></a>';
-                     echo '<a href="' . $headline_src . '" class="mobile-arrow"><img src="' . get_template_directory_uri() . '/assets/icons/arrow-right-black.svg" alt="arrow right" /></a>';
+                     echo '<p>' . $featured_post->post_excerpt. '</p>';
+                     echo '<a href="' . get_permalink($featured_post->ID) . '" class="desktop-arrow"><img src="' . get_template_directory_uri() . '/assets/icons/arrow-right.svg" alt="arrow right" /></a>';
+                     echo '<a href="' . get_permalink($featured_post->ID) . '" class="mobile-arrow"><img src="' . get_template_directory_uri() . '/assets/icons/arrow-right-black.svg" alt="arrow right" /></a>';
                     echo '</div>';
-                echo '</div>';
-                
-
+                    echo '</div>';
+                }
+    
                 if ($posts) {
-                    echo '<div class="selected-posts">';
+                    echo '<div class="selected-posts archive-recents">';
                     foreach ($posts as $post) {
                         echo '<div class="post-item">';
                         echo '<a href="'. get_permalink() .'" class="thumbnail-wrapper">';

@@ -41,6 +41,9 @@
 }
 
 html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   scroll-behavior: smooth;
 }
 
@@ -94,7 +97,7 @@ h3 {
   max-width: 1280px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1290px) {
   .container {
     padding: 0 20px;
   }
@@ -128,6 +131,10 @@ h3 {
   a {
     color: #000;
   }
+}
+
+.e-con > .elementor-widget {
+  width: 100%;
 }
 
 .post-content {
@@ -775,7 +782,7 @@ header {
         display: block;
         width: 100%;
         height: 100%;
-        padding: 7px 4.375rem;
+        padding: 7px 70px;
         text-decoration: none;
         color: #000000;
         font-size: 19px;
@@ -817,6 +824,7 @@ header {
         font-size: 18px;
         font-family: "GothamNarrow-Light", sans-serif;
         font-weight: 300;
+        white-space: nowrap;
       }
     }
 
@@ -861,6 +869,7 @@ header {
       width: 100%;
       height: 70px;
       gap: 36px;
+      max-width: 44.75rem;
 
       &:before,
       &:after {
@@ -1006,7 +1015,29 @@ header {
   }
 }
 
-@media screen and (max-width: 1140px) and (min-width: 1025px) {
+  @media screen and (max-width: 1280px) {
+    header {
+      nav {
+        ul {
+          li {
+            a {
+              padding: 7px 50px;
+            }
+          }
+        }
+      }
+      .container {
+        .site-logo {
+          &:before, &:after {
+            width: 160px;
+          }
+        }
+      }
+    }
+  }
+
+
+@media screen and (max-width: 1165px) {
   header {
     .container {
       grid-template-columns: 0.35fr 1fr 0.3fr;
@@ -1014,21 +1045,11 @@ header {
 
       .site-logo {
         &:after {
-          width: 150px;
+          width: 100px;
         }
 
         &:before {
-          width: 150px;
-        }
-      }
-    }
-
-    .main-navigation {
-      ul {
-        li {
-          a {
-            padding: 7px 50px;
-          }
+          width: 100px;
         }
       }
     }
@@ -1407,7 +1428,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
   footer {
     .copyright {
       padding: 24px 20px;
@@ -1516,6 +1537,8 @@ footer {
   flex-direction: column;
   margin-bottom: 60px;
 
+  
+
   figure {
     position: relative;
     width: 100%;
@@ -1539,17 +1562,28 @@ footer {
   }
 
   .archive-hero-content {
-    margin-top: -250px;
+    margin-top: -270px;
     display: flex;
     flex-direction: column;
     gap: 40px;
 
-    h1 {
-      color: #ffffff;
-      margin-bottom: 15px;
-      font-weight: 600;
-      font-family: "GothamNarrow-Medium", sans-serif !important;
+    .archive-hero-heading {
+      .archive-hero-cat {
+        width: fit-content;
+        margin-bottom:16px;
+        display: block;
+      }
+
+      h1 {
+        color: #ffffff;
+        margin-bottom: 15px;
+        font-weight: 600;
+        font-family: "GothamNarrow-Medium", sans-serif !important;
+        text-transform: uppercase;
+      }
     }
+
+    
 
     .archive-hero-heading__inner {
       display: grid;
@@ -1578,71 +1612,79 @@ footer {
   }
 }
 
-.selected-posts {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 22px;
-  width: 100%;
-
-  .post-item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: all 0.3s ease;
-
-    &:hover {
-      img {
-        transform: scale(1.2);
+.archive-recents, .selected-posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 22px;
+    width: 100%;
+  
+    .post-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.3s ease;
+  
+      &:hover {
+        img {
+          transform: scale(1.2);
+        }
+      }
+  
+      .thumbnail-wrapper {
+        border: 4px solid #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        height: 213px;
+        display: block;
+  
+        img {
+          border-radius: 4px;
+          object-fit: cover;
+          height: 100% !important;
+          transition: all 0.3s ease;
+        }
+      }
+  
+      .post-category {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        border-radius: 5px;
+        color: white;
+        text-transform: uppercase;
+        padding: 5px 10px;
+      }
+  
+      .post-title {
+        text-transform: uppercase;
+        font-size: 25px;
+        font-weight: 600;
+  
+        a {
+          color: #000000;
+        }
+      }
+  
+      .post-excerpt {
+        color: #000;
+        font-size: 18px;
+        line-height: 1.3;
+        font-family: "GothamNarrow-Light", sans-serif;
+        font-weight: 300;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
     }
+  }
 
-    .thumbnail-wrapper {
-      border: 4px solid #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 213px;
-      display: block;
 
-      img {
-        border-radius: 4px;
-        object-fit: cover;
-        height: 100% !important;
-        transition: all 0.3s ease;
-      }
-    }
 
-    .post-category {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      border-radius: 5px;
-      color: white;
-      text-transform: uppercase;
-      padding: 5px 10px;
-    }
-
-    .post-title {
-      text-transform: uppercase;
-      font-size: 25px;
-      font-weight: 600;
-
-      a {
-        color: #000000;
-      }
-    }
-
-    .post-excerpt {
-      color: #000;
-      font-size: 18px;
-      line-height: 1.3;
-      font-family: "GothamNarrow-Light", sans-serif;
-      font-weight: 300;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+@media screen and (max-width: 1290px) {
+  .selected-posts {
+    padding: 0 20px;
   }
 }
 
@@ -1706,6 +1748,12 @@ footer {
           font-weight: 700;
           margin-bottom: 15px;
           color: #000000;
+        }
+
+        .post-category {
+          position: absolute;
+          top: -50px;
+          left: 0;
         }
 
         .archive-hero-heading__inner {

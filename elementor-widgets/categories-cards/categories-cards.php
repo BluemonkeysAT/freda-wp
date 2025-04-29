@@ -82,9 +82,10 @@ class CategoriesCards extends Widget_Base {
             $background_color = get_field('background_color', 'category_' . $category->term_id);
             $category_icon = get_field('icon', 'category_' . $category->term_id);
             $featured_image = get_field('featured_image', 'category_' . $category->term_id);
+            $icon_border = get_field('icon_border', 'category_' . $category->term_id);
             
 
-            echo '<figure class="category-icon" style="background-color:' . esc_attr($background_color) . '">';
+            echo '<figure class="category-icon" style="border: 1px solid '. esc_attr($icon_border) .'; background-color:' . esc_attr($background_color) . '">';
                 if ($category_icon) {
                     echo '<img class="category-img" src="' . esc_url($category_icon) . '" alt="' . esc_attr($category->name) . '" />';
                 }

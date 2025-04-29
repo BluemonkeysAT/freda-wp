@@ -21,6 +21,7 @@
             width: 100%;
             height: 40%;
             background: linear-gradient(to top, #000000, #00000000);
+            pointer-events: none;
         }
 
         &:hover {
@@ -99,6 +100,15 @@
 
                 img {
                     height: 100% !important;
+                    transition: all .3s ease;
+                }
+            }
+
+            &:hover {
+                .thumbnail-wrapper {
+                    img {
+                        transform:scale(1.2);
+                    }
                 }
             }
 
@@ -134,16 +144,22 @@
     }
 }
 
+@media screen and (max-width: 1290px) {
+    .recent-posts {
+        padding: 0 20px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .recent-posts {
         grid-template-columns: 1fr;
+        padding: 0;
     }
 }
 
 @media screen and (max-width: 500px) {
     .recent-posts {
         gap: 150px;
-
 
         .post-category {
             font-size: 15px;
@@ -218,11 +234,6 @@
                 grid-template-columns: 1fr;
                 gap: 0;
                 position: relative;
-                
-
-                .thumbnail-wrapper {
-                    height: 100%;
-                }
 
                 .post-info {
                     gap: 10px;
