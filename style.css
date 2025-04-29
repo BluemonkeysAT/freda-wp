@@ -13,8 +13,8 @@
 
 @font-face {
   font-family: "GothamNarrow-Medium";
-  src: url("/wp-content/themes/freda-wp/assets/fonts/GothamNarrow-Medium.otf")
-    format("otf");
+  src: url("/wp-content/themes/freda-magazine/assets/fonts/GothamNarrow-Medium.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -22,7 +22,7 @@
 
 @font-face {
   font-family: "GothamNarrow-Light";
-  src: url("/wp-content/themes/freda-wp/assets/fonts/GothamNarrow-Light.otf")
+  src: url("/wp-content/themes/freda-magazine/assets/fonts/GothamNarrow-Light.woff2")
     format("otf");
   font-weight: 300;
   font-style: normal;
