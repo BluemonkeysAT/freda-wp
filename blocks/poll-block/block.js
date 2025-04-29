@@ -4,9 +4,9 @@
 	const { Fragment, useState } = element;
 
 	blocks.registerBlockType('freda-custom-widgets/freda-post-poll', {
-		title: 'Post Poll',
+		title: 'Freda Post Poll',
 		icon: 'analytics',
-		category: 'common',
+        category: 'freda-category',
 		attributes: {
 			pollData: {
 				type: 'array',

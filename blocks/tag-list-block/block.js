@@ -3,9 +3,9 @@
     const { createElement: el } = element;
 
     registerBlockType('freda/tag-list-block', {
-        title: 'Tag List',
+        title: 'Freda Tag List',
         icon: 'tag',
-        category: 'common',
+        category: 'freda-category',
         edit: function () {
             return el(
                 'div',

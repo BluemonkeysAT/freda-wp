@@ -68,3 +68,16 @@ function freda_register_all_blocks_inline() {
     }
 }
 add_action('init', 'freda_register_all_blocks_inline');
+
+add_filter('block_categories_all', function($categories, $post) {
+    return array_merge(
+        [
+            [
+                'slug'  => 'freda-category',
+                'title' => __('🎯 Freda Widgets', 'freda'),
+                'icon'  => null,
+            ]
+        ],
+        $categories
+    );
+}, 10, 2);

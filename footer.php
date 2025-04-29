@@ -34,7 +34,7 @@
             <a href="<?php echo get_field('tiktok', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="tiktok" /></a>
             <a href="<?php echo get_field('youtube', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-green.svg" alt="youtube" /></a>
         </div>
-        <a href="" class="btn-lightgreen freda-a">
+        <a href="https://freda.at/" class="btn-lightgreen freda-a">
             Zur FREDA Akademie
         </a>
         <nav class="footer-menu">
