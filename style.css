@@ -1848,7 +1848,7 @@ footer {
 @media screen and (max-width: 500px) {
   .category-recent-posts {
     h2 {
-      font-size: 24px;
+      font-size: 24px !important;
     }
 
     .selected-posts {
