@@ -25,6 +25,15 @@ function freda_magazine_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'freda_magazine_enqueue_styles');
 
+function freda_async_styles() {
+    $href = get_template_directory_uri() . '/style.css';
+    echo <<<HTML
+<link rel="preload" as="style" href="{$href}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{$href}"></noscript>
+HTML;
+}
+add_action('wp_head', 'freda_async_styles', 1);
+
 function freda_enqueue_scripts() {
     wp_enqueue_script('freda-magazine-scripts', get_template_directory_uri() . '/includes/main.js', array('jquery'), null, true);
     wp_enqueue_script('load-more', get_template_directory_uri() . '/includes/load-more.js', ['jquery'], null, true);
