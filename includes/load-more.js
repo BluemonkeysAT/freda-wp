@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
         const button = $(this);
         let page = parseInt(button.data('page')) + 1;
         let category = button.data('category') || null;
-        let author = button.data('author') || null;
+        let postsPerPage = button.data('posts-per-page') || 6; // Default to 6 if not set
 
         $('#load-more-spinner').show();
 
@@ -15,14 +15,14 @@ jQuery(document).ready(function ($) {
                 action: 'load_more_posts',
                 page: page,
                 category: category,
-                author: author,
+                posts_per_page: postsPerPage,
             },
             success: function (response) {
                 $('#load-more-spinner').hide();
 
                 if (response.success && response.data.html) {
                     $('.selected-posts').append(response.data.html);
-                    button.data('page', page); 
+                    button.data('page', page);
                 } else {
                     button.hide();
                 }
