@@ -669,6 +669,9 @@ h3 {
     }
 
     .post-text {
+      max-width: 100%;
+      word-break: break-word;
+      
       p {
         font-size: 16px !important;
       }

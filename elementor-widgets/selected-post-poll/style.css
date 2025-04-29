@@ -200,7 +200,7 @@
         background: #F3F2EA;
         padding: 20px;
         border-radius: 8px;
-        width: 100%;
+        width: 98%;
 
         .post-category {
           position: absolute;
@@ -234,7 +234,7 @@
 
 
       .poll-frontend {
-        max-width: 385px;
+        max-width: 98%;
       }
       .post-poll {
         .poll-question {
@@ -247,26 +247,6 @@
             }
           }
         }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 414px) {
-  .selected-post-poll {
-    .container {
-      .poll-frontend {
-        max-width: 375px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .selected-post-poll {
-    .container {
-      .poll-frontend {
-        max-width: 335px;
       }
     }
   }
