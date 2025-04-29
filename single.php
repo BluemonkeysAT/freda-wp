@@ -140,7 +140,7 @@
                         <?php
                         $related_categories = get_terms(array(
                             'taxonomy'   => 'category',
-                            'include'    => array(4, 1771, 1772, 1773),
+                            'include'    => array(4, 1771, 1772, 8),
                             'orderby'    => 'include',
                             'hide_empty' => false
                         ));
