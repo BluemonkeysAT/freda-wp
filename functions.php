@@ -26,11 +26,13 @@ function freda_magazine_enqueue_styles() {
 add_action('wp_enqueue_scripts', 'freda_magazine_enqueue_styles');
 
 function freda_async_styles() {
+    if (is_single()) {
     $href = get_template_directory_uri() . '/style.css';
     echo <<<HTML
 <link rel="preload" as="style" href="{$href}" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{$href}"></noscript>
 HTML;
+    }
 }
 add_action('wp_head', 'freda_async_styles', 1);
 
