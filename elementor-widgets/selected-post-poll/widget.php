@@ -83,12 +83,10 @@ class SelectPostPoll extends Widget_Base {
         echo '<div class="selected-post-poll">';
         $post_thumbnail = get_the_post_thumbnail($post->ID, 'full');
         if ($post_thumbnail) {
-            echo '<div class="post-thumbnail">' . $post_thumbnail . '</div>';
+            echo '<a href="' . get_permalink() . '" class="post-thumbnail">' . $post_thumbnail . '</a>';
         }
             echo '<div class="container">';
 
-            
-            
             echo '<div class="post-info">';
             
             $categories = get_the_category();
