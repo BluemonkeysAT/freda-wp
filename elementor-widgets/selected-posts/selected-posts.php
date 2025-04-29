@@ -100,7 +100,7 @@ class SelectPosts extends Widget_Base {
             'title' => $post->post_title,
             'excerpt' => get_the_excerpt(),
             'permalink' => get_permalink($post->ID),
-            'thumbnail' => has_post_thumbnail($post->ID) ? get_the_post_thumbnail($post->ID, 'medium') : '',
+            'thumbnail' => has_post_thumbnail($post->ID) ? get_the_post_thumbnail($post->ID, 'full') : '',
             'author' => get_the_author_meta('display_name', $post->post_author),
             'date' => get_the_date('F j, Y', $post->ID),
             'category' => $category,
