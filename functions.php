@@ -434,3 +434,4 @@ function dequeue_dashicons_everywhere() {
     }
 }
 add_action('wp_enqueue_scripts', 'dequeue_dashicons_everywhere', 100);
+

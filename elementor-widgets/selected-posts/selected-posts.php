@@ -36,28 +36,28 @@ class SelectPosts extends Widget_Base {
         $this->add_control(
             'featured_hero_post',
             [
-            'label' => __('Featured Post', 'freda'),
-            'type' => Controls_Manager::SELECT2,
-            'options' => $this->get_posts_list(),
-            'label_block' => true,
-            'description' => __('Select a single post to feature as the hero post.', 'freda'),
-            'multiple' => false,
-            'autocomplete' => [
-            'object' => 'post',
-            'display' => 'post_title',
-            ],
+                'label' => __('Featured Post', 'freda'),
+                'type' => Controls_Manager::SELECT2,
+                'options' => $this->get_posts_list(),
+                'label_block' => true,
+                'description' => __('Select a single post to feature as the hero post.', 'freda'),
+                'multiple' => false,
+                'autocomplete' => [
+                    'object' => 'post',
+                    'display' => 'post_title',
+                ],
             ]
         );
 
         $this->add_control(
             'posts',
             [
-            'label' => __('Select Posts', 'freda'),
-            'type' => Controls_Manager::SELECT2,
-            'multiple' => true,
-            'options' => $this->get_posts_list(),
-            'label_block' => true,
-            'description' => __('Select multiple posts to display.', 'freda'),
+                'label' => __('Select Posts', 'freda'),
+                'type' => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options' => $this->get_posts_list(),
+                'label_block' => true,
+                'description' => __('Select multiple posts to display.', 'freda'),
             ]
         );
 
@@ -81,17 +81,17 @@ class SelectPosts extends Widget_Base {
             $text_color = get_field('text_color', 'category_' . $categories[0]->term_id);
 
             $category = [
-            'name' => $categories[0]->name,
-            'link' => get_category_link($categories[0]->term_id),
-            'background_color' => $background_color ? $background_color : '#fff',
-            'text_color' => $text_color ? $text_color : '#000',
+                'name' => $categories[0]->name,
+                'link' => get_category_link($categories[0]->term_id),
+                'background_color' => $background_color ? $background_color : '#fff',
+                'text_color' => $text_color ? $text_color : '#000',
             ];
         } else {
             $category = [
-            'name' => 'Uncategorized',
-            'link' => '#',
-            'background_color' => '#000',
-            'text_color' => '#fff',
+                'name' => 'Uncategorized',
+                'link' => '#',
+                'background_color' => '#000',
+                'text_color' => '#fff',
             ];
         }
 
@@ -100,7 +100,6 @@ class SelectPosts extends Widget_Base {
             'title' => $post->post_title,
             'excerpt' => get_the_excerpt(),
             'permalink' => get_permalink($post->ID),
-            'thumbnail' => has_post_thumbnail($post->ID) ? get_the_post_thumbnail($post->ID, 'full') : '',
             'author' => get_the_author_meta('display_name', $post->post_author),
             'date' => get_the_date('F j, Y', $post->ID),
             'category' => $category,
@@ -128,15 +127,15 @@ class SelectPosts extends Widget_Base {
 
         if (!empty($featured_post)) {
             $featured_query = new \WP_Query([
-            'post__in' => [$featured_post],
-            'orderby' => 'post__in',
+                'post__in' => [$featured_post],
+                'orderby' => 'post__in',
             ]);
         }
 
         if (!empty($post_ids)) {
             $posts_query = new \WP_Query([
-            'post__in' => $post_ids,
-            'orderby' => 'post__in',
+                'post__in' => $post_ids,
+                'orderby' => 'post__in',
             ]);
         }
 
@@ -145,59 +144,66 @@ class SelectPosts extends Widget_Base {
             return;
         }
 
-        if (($featured_query && $featured_query->have_posts()) || 
+        if (($featured_query && $featured_query->have_posts()) ||
             ($posts_query && $posts_query->have_posts())) {
             echo '<div class="featured-posts__hero">';
             if (!empty($featured_post)) {
                 $featured_post_data = $this->get_featured_post($featured_post);
                 if ($featured_post_data) {
                     echo '<figure class="featured-post-img-wrapper">';
-                    echo $featured_post_data['thumbnail'];
+
+                    $mobile_image_id = get_post_meta($featured_post_data['id'], '_mobile_hero_image_id', true);
+                    $mobile_image_url = $mobile_image_id ? wp_get_attachment_url($mobile_image_id) : '';
+                    $desktop_image_url = get_the_post_thumbnail_url($featured_post_data['id'], 'full');
+
+                    if (wp_is_mobile() && $mobile_image_url) {
+                        echo '<img src="' . esc_url($mobile_image_url) . '" alt="' . esc_attr($featured_post_data['title']) . '">';
+                    } elseif ($desktop_image_url) {
+                        echo '<img src="' . esc_url($desktop_image_url) . '" alt="' . esc_attr($featured_post_data['title']) . '">';
+                    }
+
                     echo '</figure>';
 
                     echo '<div class="post-info">';
-
                     $category = $featured_post_data['category'];
-                    
+
                     if (!empty($category)) {
                         echo '<a href="' . esc_url($category['link']) . '" 
-                            class="post-category" style="background-color:' . esc_attr($category['background_color']) . '; color:' . esc_attr($category['text_color']) . ';">' 
-                            . esc_html($category['name']) . 
+                            class="post-category" style="background-color:' . esc_attr($category['background_color']) . '; color:' . esc_attr($category['text_color']) . ';">'
+                            . esc_html($category['name']) .
                             '</a>';
                     }
                     echo '<h1>' . esc_html($featured_post_data['title']) . '</h1>';
                     echo '<div class="post-meta">';
                     echo '<p>' . esc_html($featured_post_data['excerpt']) . '</p>';
                     echo '<a href="'. esc_url($featured_post_data['permalink']).'">';
-                        echo '<img class="desktop-icon" src="'.get_template_directory_uri().'/assets/icons/arrow-right.svg" alt="Arrow Right">';
-                        echo '<img class="mobile-icon" src="'.get_template_directory_uri().'/assets/icons/arrow-right-black.svg" alt="Arrow Right" width="40" height="15">';
+                    echo '<img class="desktop-icon" src="'.get_template_directory_uri().'/assets/icons/arrow-right.svg" alt="Arrow Right">';
+                    echo '<img class="mobile-icon" src="'.get_template_directory_uri().'/assets/icons/arrow-right-black.svg" alt="Arrow Right" width="40" height="15">';
                     echo '</a>';
                     echo '</div>';
                     echo '</div>';
                 }
-                
             }
-
 
             echo '<div class="selected-posts">';
             if ($posts_query && $posts_query->have_posts()) {
                 while ($posts_query->have_posts()) {
                     $posts_query->the_post();
-            
+
                     echo '<div class="post-item">';
                     echo '<a href="' . get_permalink() . '" class="thumbnail-wrapper">';
                     if (has_post_thumbnail()) {
                         echo get_the_post_thumbnail(get_the_ID(), 'large');
                     }
-            
+
                     $categories = get_the_category();
                     if (!empty($categories)) {
                         $categoryBackground = get_field('background_color', 'category_' . $categories[0]->term_id);
                         $categoryTextColor = get_field('text_color', 'category_' . $categories[0]->term_id);
-            
+
                         echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" 
-                            class="post-category" style="background-color:' . esc_attr($categoryBackground) . '; color:' . esc_attr($categoryTextColor) . ';">' 
-                            . esc_html($categories[0]->name) . 
+                            class="post-category" style="background-color:' . esc_attr($categoryBackground) . '; color:' . esc_attr($categoryTextColor) . ';">'
+                            . esc_html($categories[0]->name) .
                             '</a>';
                     }
                     echo '</a>';
@@ -209,9 +215,10 @@ class SelectPosts extends Widget_Base {
                 }
             }
             echo '</div>';
-            echo '</div>';  
+            echo '</div>';
+        }
 
         wp_reset_postdata();
     }
-}
-}
+} // End of class
+?>
