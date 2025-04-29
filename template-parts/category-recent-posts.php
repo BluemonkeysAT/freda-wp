@@ -13,7 +13,7 @@
     ]);
 
     echo '<h2>Neueste Artikel</h2>';
-    echo '<div class="selected-posts archive-recents container">';
+    echo '<div class="selected-posts archive-recents archive-load-more container">';
 
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();

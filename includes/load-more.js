@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
                 $('#load-more-spinner').hide();
 
                 if (response.success && response.data.html) {
-                    $('.selected-posts').append(response.data.html);
+                    $('.archive-load-more').append(response.data.html);
                     button.data('page', page);
                 } else {
                     button.hide();
