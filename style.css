@@ -23,7 +23,7 @@
 @font-face {
   font-family: "GothamNarrow-Light";
   src: url("/wp-content/themes/freda-magazine/assets/fonts/GothamNarrow-Light.woff2")
-    format("otf");
+    format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
