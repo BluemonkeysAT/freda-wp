@@ -434,3 +434,13 @@ function dequeue_dashicons_everywhere() {
     }
 }
 add_action('wp_enqueue_scripts', 'dequeue_dashicons_everywhere', 100);
+
+// Add Animation transition Library
+
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style('theme-style', get_stylesheet_uri());
+
+    wp_enqueue_script('barba-js', get_template_directory_uri() . '/js/vendor/barba.min.js', [], null, true);
+    wp_enqueue_script('gsap-js', get_template_directory_uri() . '/js/vendor/gsap.min.js', [], null, true);
+    wp_enqueue_script('barba-init', get_template_directory_uri() . '/js/barba-init.js', ['barba-js', 'gsap-js'], null, true);
+});

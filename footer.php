@@ -47,6 +47,6 @@
         </nav>
     </div>
 </footer>
-
+<div id="loader"></div>
 </body>
 <?php wp_footer(); ?>
