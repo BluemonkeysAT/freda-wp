@@ -57,15 +57,3 @@ if (postShareButtonsWrapper) {
         postShareButtonsWrapper.classList.remove('sticky-btns-hover');
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const postContent = document.querySelector('.post-content');
-    
-    if (postContent && window.innerWidth < 500) {
-        const container = postContent.querySelector('.container');
-        
-        if (container) {
-            container.style.padding = '0 20px';
-        }
-    }
-});
