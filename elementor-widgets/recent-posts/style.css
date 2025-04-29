@@ -190,10 +190,11 @@
                 padding: 20px;
                 border-radius: 8px;
                 width: 89%;
-                z-index: 1;
+                z-index: 2;
                 bottom: -127px;
                 left: 20px;
-
+                pointer-events: all;
+                
                 .post-title {
                     font-size: 24px;
                     color: #000;

@@ -591,7 +591,7 @@ h3 {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media all and (max-width: 500px) {
   .post-content {
     .container {
       .post-info {
@@ -664,6 +664,8 @@ h3 {
 
     .post-title {
       font-size: 30px !important;
+      word-break: break-word;
+      max-width: 90%;
     }
 
     .post-text {
@@ -1683,20 +1685,20 @@ footer {
 
 
 @media screen and (max-width: 1290px) {
-  .selected-posts {
+  .archive-recents, .selected-posts {
     padding: 0 20px;
   }
 }
 
 @media screen and (max-width: 978px) {
-  .selected-posts {
+  .archive-recents, .selected-posts {
     grid-template-columns: 1fr 1fr;
     padding: 0;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .selected-posts {
+  .archive-recents, .selected-posts {
     grid-template-columns: 1fr;
     gap: 20px;
 
@@ -1841,7 +1843,7 @@ footer {
 
         .post-info {
           background-color: #ffffff;
-          padding: 20px 0;
+          padding: 20px;
           border-bottom-left-radius: 8px;
           border-bottom-right-radius: 8px;
         }
@@ -2039,6 +2041,12 @@ footer {
             font-size: 16px;
           }
         }
+      }
+    }
+
+    .related-posts__socials {
+      h3 {
+        font-size: 16px;
       }
     }
   }

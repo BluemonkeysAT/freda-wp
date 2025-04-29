@@ -153,6 +153,14 @@
     }
 }
 
+@media screen and (max-width: 1280px) {
+    .featured-posts__hero {
+        .post-info {
+            padding: 0 20px;
+        }
+    }
+}
+
 
 
 @media screen and (max-width: 1024px) {
@@ -166,10 +174,12 @@
 @media screen and (max-width: 768px) {
     .featured-posts__hero {
 
+
         .post-info {
             background-color: #F3F2EA;
             padding: 20px;
             border-radius: 8px;
+            max-width: 94.5%;
 
             h1 {
                 color: #000;
@@ -201,6 +211,7 @@
         }
         .selected-posts {
             grid-template-columns: 1fr 1fr;
+            padding: 0 20px;
     
             .post-item {
                 background: #F3F2EA;
@@ -228,4 +239,15 @@
         }
     }
     
+}
+
+@media screen and (max-width: 565px) {
+    .featured-posts__hero {
+        .post-info {
+            max-width: 90%;
+        }
+        .selected-posts {
+            grid-template-columns: 1fr;
+        }
+    }
 }

@@ -160,7 +160,7 @@ class SelectPosts extends Widget_Base {
                     $category = $featured_post_data['category'];
                     
                     if (!empty($category)) {
-                        echo '<a href="' . esc_url(get_category_link($category['link'])) . '" 
+                        echo '<a href="' . esc_url($category['link']) . '" 
                             class="post-category" style="background-color:' . esc_attr($category['background_color']) . '; color:' . esc_attr($category['text_color']) . ';">' 
                             . esc_html($category['name']) . 
                             '</a>';
