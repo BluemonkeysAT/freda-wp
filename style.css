@@ -1857,6 +1857,17 @@ footer {
     font-size: 40px !important;
   }
 
+  .selected-posts {
+    .post-item {
+      gap: 0;
+
+      .thumbnail-wrapper {
+        border: none !important;
+        padding-bottom: 10px;
+      }
+    }
+  }
+
   .post-category {
     font-weight: 550 !important;
   }
