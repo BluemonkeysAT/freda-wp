@@ -1,5 +1,5 @@
 
-<?php get_template_part('partials/template-header-gw-responsive') ?>
+<?php get_template_part('partials/template-header-green') ?>
 
 <div class="author-page">
     <div class="container">
