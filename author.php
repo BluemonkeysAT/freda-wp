@@ -74,7 +74,7 @@
             ]);
 
             echo '<h2>Artikel</h2>';
-            echo '<div class="selected-posts">';
+            echo '<div class="selected-posts archive-load-more">';
 
             if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
