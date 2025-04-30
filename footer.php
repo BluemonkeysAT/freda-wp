@@ -28,13 +28,15 @@
     </div>
     <div class="copyright">
         <div class="socials">
-            <a href="<?php echo get_field('instagram', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-green-icon.svg" alt="instagram" /></a>
-            <a href="<?php echo get_field('facebook', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-green.svg" alt="facebook" /></a>
-            <a href="<?php echo get_field('x', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-green.svg" alt="x" /></a>
-            <a href="<?php echo get_field('tiktok', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="tiktok" /></a>
-            <a href="<?php echo get_field('youtube', 'options'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-green.svg" alt="youtube" /></a>
+            <a href="<?php echo get_field('instagram', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-green-icon.svg" alt="Instagram"></a>
+            <a href="<?php echo get_field('facebook', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-green.svg" alt="Facebook"></a>
+            <a href="<?php echo get_field('tiktok', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="Tiktok"></a>
+            <a href="<?php echo get_field('youtube', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-green.svg" alt="Youtube"></a>
+            <a href="<?php echo get_field('blueksy', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/bluesky-icon-green.svg" alt="Bluesky"></a>
+            <a href="<?php echo get_field('threads', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/threads-icon-green.svg" alt="Threads"></a>
+            <a href="<?php echo get_field('linkedin', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/linkedin-icon-green.svg" alt="Linkedin"></a>
         </div>
-        <a href="https://freda.at/" class="btn-lightgreen freda-a">
+        <a href="https://freda.at/" target="_blank" class="btn-lightgreen freda-a">
             Zur FREDA Akademie
         </a>
         <nav class="footer-menu">

@@ -87,7 +87,7 @@ if ($template === 'page-green.php') {
                 </a>
             </div>
             <div class="menu-button <?php echo (!empty($GLOBALS['is_green_layout']) ? ' green' : ''); ?>">
-                <button id="menu-toggle" class="menu-toggle">
+                <button id="menu-toggle" aria-label="Toggle Menu" class="menu-toggle">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -151,9 +151,11 @@ if ($template === 'page-green.php') {
                 <div class="mobile-social-icons">
                     <a href="<?php echo get_field('instagram', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-green-icon.svg" alt="Instagram"></a>
                     <a href="<?php echo get_field('facebook', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-green.svg" alt="Facebook"></a>
-                    <a href="<?php echo get_field('x', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-green.svg" alt="X"></a>
                     <a href="<?php echo get_field('tiktok', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="Tiktok"></a>
                     <a href="<?php echo get_field('youtube', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-green.svg" alt="Youtube"></a>
+                    <a href="<?php echo get_field('blueksy', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/bluesky-icon-green.svg" alt="Bluesky"></a>
+                    <a href="<?php echo get_field('threads', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/threads-icon-green.svg" alt="Threads"></a>
+                    <a href="<?php echo get_field('linkedin', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/linkedin-icon-green.svg" alt="Linkedin"></a>
                 </div>
             </div>
         </div>
