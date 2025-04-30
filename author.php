@@ -91,7 +91,7 @@
         if ($query->max_num_pages > 1): ?>
             <button class="single-cat-load-more btn-primary"
                 data-page="1"
-                data-author="<?php $curauth->ID; ?>">
+                data-author="<?php echo $curauth->ID; ?>">
                 Mehr Laden
             </button>
 
