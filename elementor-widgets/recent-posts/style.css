@@ -159,6 +159,9 @@
 }
 
 @media screen and (max-width: 500px) {
+        .mobile-hidden {
+            display: none !important;
+        }
     .recent-posts {
         gap: 150px;
 
@@ -234,6 +237,10 @@
                 grid-template-columns: 1fr;
                 gap: 0;
                 position: relative;
+
+                .thumbnail-wrapper {
+                    height: 200px;
+                }
 
                 .post-info {
                     gap: 10px;

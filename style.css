@@ -1529,6 +1529,14 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+  .featured-posts__hero {
+    .featured-post-img-wrapper {
+      height: 600px!important;
+    }
+    .post-info {
+      margin-top: -150px!important;
+    }
+  }
   footer {
     .container {
       grid-template-columns: 1fr;

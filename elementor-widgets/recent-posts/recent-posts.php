@@ -37,20 +37,20 @@ class RecentPosts extends Widget_Base {
         $this->start_controls_section(
             'content_section',
             [
-            'label' => __('Content', 'freda'),
-            'tab' => Controls_Manager::TAB_CONTENT,
+                'label' => __('Content', 'freda'),
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
         $this->add_control(
             'categories',
             [
-            'label' => __('Categories', 'freda'),
-            'type' => Controls_Manager::SELECT2,
-            'options' => $this->get_categories_options(),
-            'multiple' => true,
-            'label_block' => true,
-            'default' => array_keys($this->get_categories_options()),
+                'label' => __('Categories', 'freda'),
+                'type' => Controls_Manager::SELECT2,
+                'options' => $this->get_categories_options(),
+                'multiple' => true,
+                'label_block' => true,
+                'default' => array_keys($this->get_categories_options()),
             ]
         );
 
@@ -58,10 +58,6 @@ class RecentPosts extends Widget_Base {
     }
 
     protected function render() {
-
-        $query = new \WP_Query([
-            'posts_per_page' => 5,
-        ]);
 
         $settings = $this->get_settings_for_display();
         $selected_categories = $settings['categories'];
@@ -79,44 +75,47 @@ class RecentPosts extends Widget_Base {
         if ($query->have_posts()) {
             $query->the_post();
             echo '<div class="recent-posts">';
-            
+
             if ($query->current_post === 0) {
                 echo '<div class="featured">';
                 echo '<a href="' . get_permalink() . '" class="featured-post-thumbnail">';
-                    if (has_post_thumbnail()) {
+                if (has_post_thumbnail()) {
                     echo get_the_post_thumbnail(get_the_ID(), 'full');
-                    }
-                    $categories = get_the_category();
-                    if (!empty($categories)) {
+                }
+                $categories = get_the_category();
+                if (!empty($categories)) {
                     $categoryBackground = get_field('background_color', 'category_' . $categories[0]->term_id);
                     $categoryTextColor = get_field('text_color', 'category_' . $categories[0]->term_id);
-                    
+
                     echo '<a href="'. esc_url(get_category_link($categories[0]->term_id)) .'" 
-                    class="post-category" style="background-color:'. $categoryBackground . '; color:' . $categoryTextColor .';">' 
-                    . esc_html($categories[0]->name) . 
-                    '</a>';
-                    }
-                    echo '</a>';
-                    echo '<div class="post-info">';
-                    echo '<h3 class="post-title">' . get_the_title() . '</h3>';
-                    echo '<p class="post-excerpt">' . get_the_excerpt() . '</p>';
-                    echo '<a href="' . get_permalink() . '" class="post-action">';
-                        echo '<img src="' . esc_url(get_template_directory_uri() . '/assets/icons/arrow-right-black.svg') . '" alt="Arrow Right" />';
-                    echo '</a>';
-                    echo '</div>';
+                        class="post-category" style="background-color:'. $categoryBackground . '; color:' . $categoryTextColor .';">'
+                        . esc_html($categories[0]->name) .
+                        '</a>';
+                }
+                echo '</a>';
+                echo '<div class="post-info">';
+                echo '<h3 class="post-title">' . get_the_title() . '</h3>';
+                echo '<p class="post-excerpt">' . get_the_excerpt() . '</p>';
+                echo '<a href="' . get_permalink() . '" class="post-action">';
+                echo '<img src="' . esc_url(get_template_directory_uri() . '/assets/icons/arrow-right-black.svg') . '" alt="Arrow Right" />';
                 echo '</a>';
                 echo '</div>';
+                echo '</div>';
             }
-            
+
             echo '<div class="post-items">';
             $counter = 0;
             while ($query->have_posts() && $counter < 4) {
                 $query->the_post();
 
                 if ($query->current_post === 0) {
-                continue;
+                    continue;
                 }
-                echo '<div class="post">';
+
+                $is_fifth_post = ($counter === 3);
+                $mobile_class = $is_fifth_post ? ' mobile-hidden' : '';
+
+                echo '<div class="post' . $mobile_class . '">';
                 echo '<a href="'. get_permalink() .'" class="thumbnail-wrapper">';
                 if (has_post_thumbnail()) {
                     echo get_the_post_thumbnail(get_the_ID(), 'medium');
@@ -128,11 +127,11 @@ class RecentPosts extends Widget_Base {
                 if (!empty($categories)) {
                     $categoryBackground = get_field('background_color', 'category_' . $categories[0]->term_id);
                     $categoryTextColor = get_field('text_color', 'category_' . $categories[0]->term_id);
-                    
+
                     echo '<a href="'. esc_url(get_category_link($categories[0]->term_id)) .'" 
-                    class="post-category" style="background-color:'. $categoryBackground . '; color:' . $categoryTextColor .';">' 
-                    . esc_html($categories[0]->name) . 
-                    '</a>';
+                    class="post-category" style="background-color:'. $categoryBackground . '; color:' . $categoryTextColor .';">'
+                        . esc_html($categories[0]->name) .
+                        '</a>';
                 }
                 echo '<h3 class="post-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
                 echo '<p class="post-excerpt">' . get_the_excerpt() . '</p>';
@@ -141,7 +140,7 @@ class RecentPosts extends Widget_Base {
                 $counter++;
             }
             echo '</div>';
-            
+
             echo '</div>';
         } else {
             echo '<p>No posts found.</p>';
