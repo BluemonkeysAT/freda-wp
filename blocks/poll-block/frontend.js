@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 							}
 						});
 				
-						if (thankyou) thankyou.style.display = 'block';
+						if (thankyou) thankyou.style.display = 'none';
 					})
 					.catch(err => {
 						console.error('Vote failed:', err);
