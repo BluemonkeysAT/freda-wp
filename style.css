@@ -532,7 +532,7 @@ h3 {
                 }
 
                 &:after {
-                  opacity: 0;
+                  opacity: 0.9;
                 }
               }
             }
@@ -1709,16 +1709,33 @@ footer {
     gap: 20px;
 
     .post-item {
+      background-color: #F3F2EA;
+      border-radius: 10px;
+      padding-bottom: 14px;
+
       .thumbnail-wrapper {
-        border: none;
+        border: none !important;
       }
 
+      a {
+        .post-title {
+          font-size:20px!important;
+          padding: 6px 10px 0 10px;
+          margin-bottom: 6px;
+        }
+        .post-excerpt {
+          font-size: 16px;
+          padding: 0 10px;
+        }
+
+      }
       .post-title {
-        font-size: 20px !important;
+        font-size: 20px;
       }
 
       .post-excerpt {
-        font-size: 16px !important;
+        -webkit-line-clamp: 2;
+        font-size: 16px;
       }
     }
   }
@@ -1784,7 +1801,7 @@ footer {
           }
 
           a {
-            margin-top: 20px;
+            margin-top: -10px;
             justify-self: end;
           }
         }
@@ -2051,6 +2068,26 @@ footer {
         grid-template-columns: 1fr;
 
         .post-item {
+          background-color: #F3F2EA;
+          border-radius: 10px;
+          padding-bottom: 14px;
+
+          .thumbnail-wrapper {
+            border: none !important;
+          }
+
+          a {
+            .post-title {
+              font-size:20px!important;
+              padding: 6px 10px 0 10px;
+              margin-bottom: 6px;
+            }
+            .post-excerpt {
+              font-size: 16px;
+              padding: 0 10px;
+            }
+
+          }
           .post-title {
             font-size: 20px;
           }
@@ -2338,7 +2375,6 @@ footer {
 
 @media screen and (max-width: 1024px) {
   .post-share-sticky-btns {
-    display: none;
   }
 }
 
@@ -2456,7 +2492,7 @@ footer {
 }
 
 .single-cat-load-more {
-  font-family: "GothamNarrow-Light", sans-serif;
+  font-family: "GothamNarrow-Medium", sans-serif;
   font-weight: 550;
   font-size: 20px;
 }
