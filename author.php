@@ -1,5 +1,5 @@
 
-<?php get_header(); ?>
+<?php get_template_part('partials/template-header-green') ?>
 
 <div class="author-page">
     <div class="container">
@@ -74,7 +74,7 @@
             ]);
 
             echo '<h2>Artikel</h2>';
-            echo '<div class="selected-posts">';
+            echo '<div class="selected-posts archive-load-more">';
 
             if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
@@ -91,7 +91,7 @@
         if ($query->max_num_pages > 1): ?>
             <button class="single-cat-load-more btn-primary"
                 data-page="1"
-                data-author="<?php echo esc_attr(get_the_author_meta('ID')); ?>">
+                data-author-id="<?php echo $curauth->ID; ?>">
                 Mehr Laden
             </button>
 

@@ -12,9 +12,9 @@
     
     <header class="site-header">
         <div class="container">
-            <div class="date-temperature<?php echo (!empty($GLOBALS['is_green_layout']) ? ' green' : ''); ?>">
+            <div class="date-temperature green">
                 <p class="current-date">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'calendar-icon-black.svg' : 'calendar-icon.svg'); ?>" alt="calendar icon">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/calendar-icon-black.svg" alt="calendar icon">
                     <?php setlocale(LC_TIME, 'de_DE.UTF-8'); echo strftime('%A %d.%B %Y'); ?>
                 </p>
 
@@ -38,22 +38,22 @@
                     ?>
                 
             </div>
-                <a href="<?php echo esc_url(home_url('/')); ?>"class="site-logo <?php echo (!empty($GLOBALS['is_green_layout']) ? ' green' : ''); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'freda-logo-green.svg' : 'freda-logo.svg'); ?>" alt="freda-logo">
+                <a href="<?php echo esc_url(home_url('/')); ?>"class="site-logo green">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/freda-logo-green.svg" alt="freda-logo">
                 </a>
-            <div class="search-social <?php echo (!empty($GLOBALS['is_green_layout']) ? ' green' : ''); ?>">
+            <div class="search-social green">
                 <form method="get" action="<?php echo esc_url(home_url('/')); ?>" class="search-form">
                     <input type="text" name="s" placeholder="Suche" class="search-input" value="<?php echo get_search_query(); ?>">
-                    <button type="submit" class="search-button"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'search-icon-black.svg' : 'search-icon.svg'); ?>" alt="search icon"></button>
+                    <button type="submit" class="search-button"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/search-icon-black.svg" alt="search icon"></button>
                 </form>
                 <div class="social-icons">
-                    <a href="<?php echo get_field('instagram', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'instagram-green-icon.svg' : 'instagram-icon.svg'); ?>" alt="Instagram"></a>
-                    <a href="<?php echo get_field('facebook', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'facebook-green.svg' : 'facebook-icon.svg'); ?>" alt="Facebook"></a>
-                    <a href="<?php echo get_field('tiktok', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'tiktok-green.svg' : 'tiktok-icon.svg'); ?>" alt="Tiktok"></a>
+                    <a href="<?php echo get_field('instagram', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/instagram-green-icon.svg" alt="Instagram"></a>
+                    <a href="<?php echo get_field('facebook', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-green.svg" alt="Facebook"></a>
+                    <a href="<?php echo get_field('tiktok', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="Tiktok"></a>
                 </div>
             </div>
         </div>
-        <nav class="main-navigation <?php echo (!empty($GLOBALS['is_green_layout']) ? ' green' : ''); ?>">
+        <nav class="main-navigation green">
             <?php
                 wp_nav_menu(array(
                     'theme_location' => 'primary',
@@ -62,14 +62,14 @@
             ?>
         </nav>
     </header>
-    <div class="header-mobile <?php echo (!empty($GLOBALS['is_green_layout']) ? 'green' : ''); ?>">
+    <div class="header-mobile">
         <div class="container">
             <div class="mobile-logo">
-                <a href="<?php echo esc_url(home_url('/')); ?>"class="site-logo <?php echo (!empty($GLOBALS['is_green_layout']) ? 'green' : ''); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/<?php echo (!empty($GLOBALS['is_green_layout']) ? 'freda-logo-green.svg' : 'freda-logo.svg'); ?>" alt="freda-logo">
+                <a href="<?php echo esc_url(home_url('/')); ?>"class="site-logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/freda-logo.svg" alt="freda-logo">
                 </a>
             </div>
-            <div class="menu-button <?php echo (!empty($GLOBALS['is_green_layout']) ? ' green' : ''); ?>">
+            <div class="menu-button">
                 <button id="menu-toggle" aria-label="Toggle Menu" class="menu-toggle">
                     <span class="bar"></span>
                     <span class="bar"></span>

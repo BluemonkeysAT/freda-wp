@@ -2,8 +2,8 @@
 /**
  * Template Name: Freda Elementor Default
  */
-get_header();
 ?>
+<?= get_template_part('partials/template-header-green'); ?>
 
     <main id="site-content">
         <?php
