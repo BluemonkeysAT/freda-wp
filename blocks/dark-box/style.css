@@ -5,12 +5,12 @@
 }
 
 .freda-dark-box-text {
-    color: var(--Weiss, #FFF);
+    color: #ffffff!important;
     font-family: "GothamNarrow-Medium", sans-serif!important;
     line-height: normal;
     font-size: 20px;
     font-style: normal;
     font-weight: 350;
     line-height: normal;
-    margin: 0;
+    margin: 0!important;
 }
