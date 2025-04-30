@@ -112,7 +112,8 @@
   border-radius: 8px;
   width: 100%;
   font-family: "GothamNarrow-Medium", sans-serif;
-
+  margin: 20px 0;
+  
   .poll-question {
     h4 {
       font-size: 22px !important;
