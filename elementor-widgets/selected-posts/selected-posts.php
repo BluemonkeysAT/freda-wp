@@ -98,7 +98,7 @@ class SelectPosts extends Widget_Base {
         $featured_post = [
             'id' => $post->ID,
             'title' => $post->post_title,
-            'excerpt' => get_the_excerpt(),
+            'excerpt' => $post->post_excerpt,
             'permalink' => get_permalink($post->ID),
             'thumbnail' => has_post_thumbnail($post->ID) ? get_the_post_thumbnail($post->ID, 'full') : '',
             'author' => get_the_author_meta('display_name', $post->post_author),
@@ -150,6 +150,7 @@ class SelectPosts extends Widget_Base {
             echo '<div class="featured-posts__hero">';
             if (!empty($featured_post)) {
                 $featured_post_data = $this->get_featured_post($featured_post);
+                
                 if ($featured_post_data) {
                     echo '<figure class="featured-post-img-wrapper">';
                     echo $featured_post_data['thumbnail'];
