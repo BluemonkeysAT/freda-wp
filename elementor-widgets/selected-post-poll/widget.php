@@ -34,9 +34,18 @@ class SelectPostPoll extends Widget_Base {
         );
 
         $this->add_control(
+            'poll_notice',
+            [
+                'type' => \Elementor\Controls_Manager::RAW_HTML,
+                'raw' => '<div style="padding:10px;background:#c5c5c5;border-left:4px solid #ffba00;font-weight:300; color: #0d0d0d; font-style: italic;">Notice: Only posts with poll data will be shown in the list below.</div>',
+                'content_classes' => 'elementor-control-field',
+            ]
+        );
+
+        $this->add_control(
             'post',
             [
-                'label' => __('Select Posts', 'freda'),
+                'label' => __('Select Post', 'freda'),
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => false,
                 'options' => $this->get_posts_list(),
