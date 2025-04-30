@@ -52,13 +52,7 @@ class CategoriesCards extends Widget_Base {
                 'label' => __('Categories (Ordered)', 'freda'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
-                'title_field' => 'Box {{ WP_RepeatIndex + 1 }}',
-                'default' => [
-                    [ 'category_id' => '4' ],
-                    [ 'category_id' => '1771' ],
-                    [ 'category_id' => '1772' ],
-                    [ 'category_id' => '8' ],
-                ],
+                'title_field' => '{{ category_id }}',
             ]
         );
 
