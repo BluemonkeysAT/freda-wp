@@ -6,7 +6,7 @@
     registerBlockType('freda/quote-block', {
         title: 'Freda Quote Block',
         icon: 'format-quote',
-        category: 'freda-category',
+        category: 'common',
         attributes: {
             quote: { type: 'string' },
             author: { type: 'string' }
@@ -42,7 +42,7 @@
             return el(
                 'div',
                 { className: 'quote-block' },
-                el('img', { className: 'quote-icon', src: '/wp-content/themes/freda-magazine/assets/icons/quote-icon.svg', alt: 'Quote Icon' }),
+                el('img', { className: 'quote-icon', src: '/wp-content/themes/freda-wp/assets/icons/quote-icon.svg', alt: 'Quote Icon' }),
                 el('p', { className: 'quote-text' }, props.attributes.quote),
                 el('p', { className: 'quote-author' }, props.attributes.author)
             );

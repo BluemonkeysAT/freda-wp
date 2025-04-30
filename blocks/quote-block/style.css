@@ -15,13 +15,18 @@
     }
     
     .quote-text {
+        font-family: "GothamNarrow-Medium", sans-serif!important;
+        line-height: normal;
+        font-weight: 550!important;
         font-size: 20px !important;
         font-weight: 550 !important;
         color: #000;
         margin-bottom: 10px;
+        padding-top: 10px
     }
     
     .quote-author {
+        font-family: "GothamNarrow-Medium", sans-serif!important;
         font-size: 17px !important;
         font-weight: 600 !important;
         color: #30472F !important;

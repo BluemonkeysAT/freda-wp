@@ -1,11 +1,16 @@
+.source-list-editor {
+    margin: 30px 0;
+}
+
 .freda-source-list ul {
     padding-left: 1.2em;
     list-style-type: square;
     list-style-position: outside;
+    margin-top: 0px!important;
 }
 
 .freda-source-list ul li {
-    margin-bottom: 0.5em;
+    margin-bottom: 6px!important;
     list-style-type: square;
     color: #9C2D5D; /* custom bullet color */
 }
@@ -16,15 +21,12 @@
 
 .freda-source-list a {
     color: var(--Klima, #30472F);
-    font-family: "Gotham Narrow", sans-serif;
+    font-family: "GothamNarrow-Medium", sans-serif!important;
     font-size: 18px;
     font-style: normal;
-    font-weight: 350;
+    font-weight: 550!important;
     line-height: 25px;
     text-decoration-line: underline;
     text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: auto;
-    text-underline-offset: auto;
     text-underline-position: from-font;
 }

@@ -1,0 +1,16 @@
+.freda-dark-box {
+    border-radius: 8px;
+    background: var(--Klima, #30472F);
+    padding: 16px;
+}
+
+.freda-dark-box-text {
+    color: var(--Weiss, #FFF);
+    font-family: "GothamNarrow-Medium", sans-serif!important;
+    line-height: normal;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+    margin: 0;
+}
