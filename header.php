@@ -9,15 +9,16 @@
 <?php
 $is_mobile = wp_is_mobile();
 $is_front_page = is_front_page();
+$template = basename(get_page_template());
 
-if ($is_mobile) {
+if ($template === 'page-green.php') {
+    $GLOBALS['is_green_layout'] = true;
+} elseif ($is_mobile) {
+    $GLOBALS['is_green_layout'] = false;
+} elseif ($is_front_page) {
     $GLOBALS['is_green_layout'] = false;
 } else {
-    if ($is_front_page) {
-        $GLOBALS['is_green_layout'] = false;
-    } else {
-        $GLOBALS['is_green_layout'] = true;
-    }
+    $GLOBALS['is_green_layout'] = true;
 }
 ?>
 
