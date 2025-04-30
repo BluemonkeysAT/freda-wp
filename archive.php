@@ -6,9 +6,8 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php get_header(); ?>
+<?php get_template_part('partials/template-header-gw-responsive'); ?>
 
-<main>
 
     <?php get_template_part('template-parts/archive-hero'); ?>
     

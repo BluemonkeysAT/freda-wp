@@ -6,10 +6,8 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php $GLOBALS['is_green_layout'] = true; ?>
-<?php get_header(); ?>
+<?php get_template_part('partials/template-header-gw-responsive'); ?>
 
-<main>
 
     <div class="post-featured-image">
         <?php if (has_post_thumbnail()) : ?>
