@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
 </head>
+
+<?php
+$is_mobile = wp_is_mobile();
+$is_front_page = is_front_page();
+
+if ($is_mobile) {
+    $GLOBALS['is_green_layout'] = false;
+} else {
+    if ($is_front_page) {
+        $GLOBALS['is_green_layout'] = false;
+    } else {
+        $GLOBALS['is_green_layout'] = true;
+    }
+}
+?>
+
 <body <?php body_class(); ?>>
     
     <header class="site-header">

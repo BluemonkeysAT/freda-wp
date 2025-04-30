@@ -1,4 +1,4 @@
-<?php $GLOBALS['is_green_layout'] = true; ?>
+
 <?php get_header(); ?>
 
 <div class="author-page">
