@@ -38,6 +38,7 @@
 
             img {
                 height: 100% !important;
+                object-fit: cover;
                 transition: all .3s ease;
             }
         }
@@ -95,7 +96,7 @@
             .thumbnail-wrapper {
                 border-radius: 8px;
                 overflow: hidden;
-                height: 100%;
+                height: 114px;
 
                 img {
                     height: 100% !important;
