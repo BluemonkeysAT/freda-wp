@@ -159,22 +159,25 @@ class SelectPosts extends Widget_Base {
                     echo '<div class="post-info">';
 
                     $category = $featured_post_data['category'];
-
                     if (!empty($category)) {
                         echo '<a href="' . esc_url($category['link']) . '" 
                             class="post-category" style="background-color:' . esc_attr($category['background_color']) . '; color:' . esc_attr($category['text_color']) . ';">'
                             . esc_html($category['name']) .
                             '</a>';
                     }
-                    echo '<h1>' . esc_html($featured_post_data['title']) . '</h1>';
-                    echo '<div class="post-meta">';
-                    echo '<p>' . esc_html($featured_post_data['excerpt']) . '</p>';
-                    echo '<a href="'. esc_url($featured_post_data['permalink']).'">';
-                        echo '<img class="desktop-icon" src="'.get_template_directory_uri().'/assets/icons/arrow-right.svg" alt="Arrow Right">';
-                        echo '<img class="mobile-icon" src="'.get_template_directory_uri().'/assets/icons/arrow-right-black.svg" alt="Arrow Right" width="40" height="15">';
+
+                    echo '<a href="' . esc_url($featured_post_data['permalink']) . '" class="post-link">';
+                        echo '<h1>' . esc_html($featured_post_data['title']) . '</h1>';
+                        echo '<div class="post-meta">';
+                            echo '<p>' . esc_html($featured_post_data['excerpt']) . '</p>';
+                            echo '<span class="post-arrow">';
+                                echo '<img class="desktop-icon" src="' . get_template_directory_uri() . '/assets/icons/arrow-right.svg" alt="Arrow Right">';
+                                echo '<img class="mobile-icon" src="' . get_template_directory_uri() . '/assets/icons/arrow-right-black.svg" alt="Arrow Right" width="40" height="15">';
+                            echo '</span>';
+                        echo '</div>';
                     echo '</a>';
-                    echo '</div>';
-                    echo '</div>';
+
+                echo '</div>';
                 }
 
             }

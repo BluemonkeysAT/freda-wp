@@ -3,22 +3,25 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/GothamNarrow-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/GothamNarrow-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <?php wp_head(); ?>
 </head>
 
 <?php
 $is_mobile = wp_is_mobile();
-$is_front_page = is_front_page();
 $template = basename(get_page_template());
 
 if ($template === 'page-green.php') {
     $GLOBALS['is_green_layout'] = true;
 } elseif ($is_mobile) {
     $GLOBALS['is_green_layout'] = false;
-} elseif ($is_front_page) {
+} elseif (is_front_page()) {
     $GLOBALS['is_green_layout'] = false;
-} else {
+} elseif (is_single() || is_archive() || is_author() || is_search()) {
     $GLOBALS['is_green_layout'] = true;
+} else {
+    $GLOBALS['is_green_layout'] = false;
 }
 ?>
 

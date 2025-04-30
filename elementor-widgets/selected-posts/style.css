@@ -66,7 +66,7 @@
                 font-weight: 300;
             }
 
-            a {
+            span {
                 width: 40px;
                 display: block;
             }
@@ -191,7 +191,7 @@
                     font-size: 16px;
                 }
 
-                a {
+                span {
                     justify-self: end;
                 }
                 
