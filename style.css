@@ -1622,7 +1622,7 @@ footer {
         display: block;
       }
       .mobile-icon {
-        display: none;
+        display: none!important;
       }
     }
   }
