@@ -25,8 +25,10 @@
                         echo '<h1>' . $featured_post->post_title . '</h1>';
                         echo '<div class="archive-hero-heading__inner">';
                          echo '<p>' . $featured_post->post_excerpt. '</p>';
-                         echo '<a href="' . get_permalink($featured_post->ID) . '" class="desktop-arrow"><img src="' . get_template_directory_uri() . '/assets/icons/arrow-right.svg" alt="arrow right" /></a>';
-                         echo '<a href="' . get_permalink($featured_post->ID) . '" class="mobile-arrow"><img src="' . get_template_directory_uri() . '/assets/icons/arrow-right-black.svg" alt="arrow right" /></a>';
+                         echo '<span class="post-arrow" style="width: 40px">';
+                             echo '<img class="desktop-icon" src="' . get_template_directory_uri() . '/assets/icons/arrow-right.svg" alt="arrow right" />';
+                             echo '<img class="mobile-icon" src="' . get_template_directory_uri() . '/assets/icons/arrow-right-black.svg" alt="arrow right" />';
+                        echo '</span>';
                         echo '</div>';
                         echo '</div>';
                     echo '</a>';

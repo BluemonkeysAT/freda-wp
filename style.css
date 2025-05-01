@@ -1621,6 +1621,9 @@ footer {
         width: fit-content;
         display: block;
       }
+      .mobile-icon {
+        display: none;
+      }
     }
   }
 }
@@ -1819,6 +1822,26 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+  .archive-hero {
+    & .archive-hero-content {
+      & .archive-hero-heading__inner {
+        .mobile-icon {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  .archive-hero {
+    & .archive-hero-content {
+      & .archive-hero-heading__inner {
+        .desktop-icon {
+          display: none;
+        }
+      }
+    }
+  }
+
   .archive-hero {
     figure {
       height: 313px;
