@@ -123,10 +123,10 @@
                         <p class="post-author__bio">
                             <?php echo esc_html($authorDescription); ?>
                          </p>
-                         <p class="post-author__link">
-                            <a href="mailto:<?php echo esc_attr($authorEmail); ?>">
-                                <span>Mehr Erfahren</span> 
-                                <img src="<?php echo get_template_directory_uri();?>/assets/icons/arrow-right-green.svg" alt="arrow right" />
+                        <p class="post-author__link">
+                            <a href="<?php echo esc_url($authorLink); ?>">
+                                <span>Mehr Erfahren</span>
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/arrow-right-green.svg" alt="arrow right" />
                             </a>
                         </p>
                     </div>
