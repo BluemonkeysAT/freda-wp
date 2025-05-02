@@ -119,7 +119,7 @@
                         <div class="post-author__image">
                             <?php
                             if (function_exists('get_avatar')) {
-                                echo get_avatar($authorID, 96);
+                                echo get_avatar($authorID, 200);
                             }
                             ?>
                         </div>
