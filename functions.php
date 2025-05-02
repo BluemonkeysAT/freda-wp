@@ -87,7 +87,7 @@ add_action('elementor/widgets/register', function($widgets_manager) {
     require_once get_template_directory() . '/elementor-widgets/selected-posts/selected-posts.php';
     wp_enqueue_style('selected-posts-style', get_template_directory_uri() . '/elementor-widgets/selected-posts/style.css');
     $widgets_manager->register(new \FredaMagazin\SelectPosts());
-    
+
     // Recent Posts Widget
     require_once get_template_directory() . '/elementor-widgets/recent-posts/recent-posts.php';
     wp_enqueue_style('recent-posts-style', get_template_directory_uri() . '/elementor-widgets/recent-posts/style.css');
@@ -102,6 +102,10 @@ add_action('elementor/widgets/register', function($widgets_manager) {
     require_once get_template_directory() . '/elementor-widgets/selected-post-poll/widget.php';
     wp_enqueue_style('selected-post-poll-style', get_template_directory_uri() . '/elementor-widgets/selected-post-poll/style.css');
     $widgets_manager->register(new \FredaMagazin\SelectPostPoll());
+
+    // Social CTA Widget
+    require_once get_template_directory() . '/elementor-widgets/social-cta-widget.php';
+    $widgets_manager->register(new \Social_CTA_Widget());
 });
 
 // Add support for featured images
