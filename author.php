@@ -12,7 +12,7 @@
             <figure class="author-img-wrapper">
                 <?php
                 if (function_exists('get_avatar')) {
-                    echo get_avatar($curauth->ID, 96); // 96 is the size of the avatar
+                    echo get_avatar($curauth->ID, 200);
                 }
                 ?>
             </figure>

@@ -117,7 +117,11 @@
                     <div class="post-author__info">
                         <h3>Über den Autor</h3>
                         <div class="post-author__image">
-                            <?php echo get_avatar($authorAvatar); ?>
+                            <?php
+                            if (function_exists('get_avatar')) {
+                                echo get_avatar($authorID, 96);
+                            }
+                            ?>
                         </div>
                         <p class="post-author__name"><?php echo esc_html($authorName); ?></p>
                         <p class="post-author__bio">
