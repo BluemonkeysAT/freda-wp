@@ -795,6 +795,7 @@ header {
         font-family: "GothamNarrow-Medium", sans-serif;
         transition: all 0.3s ease;
         border-radius: 4px;
+        line-height: normal;
 
         &:hover {
         }
