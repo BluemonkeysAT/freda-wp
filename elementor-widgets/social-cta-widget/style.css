@@ -1,0 +1,19 @@
+.related-posts__socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin: 30px 0;
+    background-color: #30472f;
+    padding: 40px 0;
+    border-radius: 8px;
+    width: 100%;
+    color: #fff;
+    font-weight: 300 !important;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

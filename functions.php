@@ -104,7 +104,9 @@ add_action('elementor/widgets/register', function($widgets_manager) {
     $widgets_manager->register(new \FredaMagazin\SelectPostPoll());
 
     // Social CTA Widget
-    require_once get_template_directory() . '/elementor-widgets/social-cta-widget.php';
+    require_once get_template_directory() . '/elementor-widgets/social-cta-widget/social-cta-widget.php';
+    wp_enqueue_style('social-cta-widget-style', get_template_directory_uri() . '/elementor-widgets/social-cta-widget/style.css');
+
     $widgets_manager->register(new \Social_CTA_Widget());
 });
 
