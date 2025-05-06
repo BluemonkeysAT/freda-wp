@@ -133,6 +133,7 @@
                 .poll-percentage {
                     font-weight: 400;
                     color: #fff;
+                  min-width: 30px;
                 }
             }
         }
