@@ -57,7 +57,7 @@ class SelectPosts extends Widget_Base {
             'multiple' => true,
             'options' => $this->get_posts_list(),
             'label_block' => true,
-            'description' => __('Select multiple posts to display.', 'freda'),
+            'description' => __('Select multiple posts to display. Mobile will only show first 4', 'freda'),
             ]
         );
 
@@ -185,10 +185,12 @@ class SelectPosts extends Widget_Base {
 
             echo '<div class="selected-posts">';
             if ($posts_query && $posts_query->have_posts()) {
+                $index = 0;
                 while ($posts_query->have_posts()) {
                     $posts_query->the_post();
-
-                    echo '<div class="post-item">';
+                    $index++;
+                    $mobile_class = $index > 4 ? ' mobile-hidden' : '';
+                    echo '<div class="post-item' . $mobile_class . '" data-index="' . $index . '">';
                     echo '<a href="' . get_permalink() . '" class="thumbnail-wrapper">';
                     if (has_post_thumbnail()) {
                         echo get_the_post_thumbnail(get_the_ID(), 'large');

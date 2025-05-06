@@ -32,7 +32,7 @@
             <a href="<?php echo get_field('facebook', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-green.svg" alt="Facebook"></a>
             <a href="<?php echo get_field('tiktok', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="Tiktok"></a>
             <a href="<?php echo get_field('youtube', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-green.svg" alt="Youtube"></a>
-            <a href="<?php echo get_field('blueksy', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/bluesky-icon-green.svg" alt="Bluesky"></a>
+            <a href="<?php echo get_field('bluesky', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/bluesky-icon-green.svg" alt="Bluesky"></a>
             <a href="<?php echo get_field('threads', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/threads-icon-green.svg" alt="Threads"></a>
             <a href="<?php echo get_field('linkedin', 'options'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/linkedin-icon-green.svg" alt="Linkedin"></a>
         </div>

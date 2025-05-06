@@ -55,10 +55,6 @@
                         <a href="mailto:<?php echo $email; ?>" style="background: #30472f;" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/email-share-icon.svg" alt="E-Mail"></a>
                     <?php } ?>
 
-
-                    <a href="<?php echo get_user_meta($curauth->ID, 'x', true); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-green.svg" alt="X"></a>
-                    <a href="<?php echo get_user_meta($curauth->ID, 'tiktok', true); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tiktok-green.svg" alt="Tiktok"></a>
-                    <a href="<?php echo get_user_meta($curauth->ID, 'youtube', true); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/youtube-green.svg" alt="Youtube"></a>
                 </div>
             </div>
         </div>
