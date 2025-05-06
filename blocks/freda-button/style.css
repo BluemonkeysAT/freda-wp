@@ -1,6 +1,7 @@
 .freda-button {
     display: inline-block;
     padding: 0.75em 1.5em;
+    margin: 20px 0;
     border-radius: 8px;
     background: var(--Klima, #30472F);
     color: #fff!important;
