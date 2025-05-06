@@ -8,6 +8,7 @@
     text-decoration: none!important;
     font-weight: 600!important;
     transition: background 0.3s ease;
+    font-family: "GothamNarrow-Medium", sans-serif !important;
 }
 .freda-button:hover {
     background: #40633e;
