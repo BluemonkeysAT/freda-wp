@@ -6,7 +6,7 @@
     registerBlockType('freda/freda-button', {
         title: 'Freda Button',
         icon: 'button',
-        category: 'common',
+        category: 'freda-category',
         attributes: {
             text: { type: 'string', default: 'Jetzt klicken' },
             url: { type: 'string', default: '#' }

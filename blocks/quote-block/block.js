@@ -6,7 +6,7 @@
     registerBlockType('freda/quote-block', {
         title: 'Freda Quote Block',
         icon: 'format-quote',
-        category: 'common',
+        category: 'freda-category',
         attributes: {
             quote: { type: 'string' },
             author: { type: 'string' }
