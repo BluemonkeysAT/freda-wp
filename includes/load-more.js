@@ -4,6 +4,7 @@ jQuery(document).ready(function ($) {
         let page = parseInt(button.data('page')) + 1;
         let category = button.data('category') || null;
         let author = button.data('author-id') || null;
+        let search = button.data('search') || null;
         let postsPerPage = button.data('posts-per-page') || 6; // Default to 6 if not set
 
         $('#load-more-spinner').show();
@@ -17,6 +18,7 @@ jQuery(document).ready(function ($) {
                 page: page,
                 category: category,
                 author: author,
+                search: search,
                 posts_per_page: postsPerPage,
             },
             success: function (response) {

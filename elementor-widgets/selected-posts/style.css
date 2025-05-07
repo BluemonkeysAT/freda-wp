@@ -23,7 +23,7 @@
             left: 0;
             right: 0;
             width: 100%;
-            height: 30%;
+            height: 50%;
             z-index: 0;
         }
         &:after {
@@ -161,6 +161,13 @@
 
 @media screen and (max-width: 1024px) {
     .featured-posts__hero {
+        .featured-post-img-wrapper {
+            &:before {
+                height: 70%;
+                background: linear-gradient(to bottom, #000000 30%, #00000000);
+            }
+        }
+
         .selected-posts {
             grid-template-columns: 1fr 1fr;
         }
@@ -169,7 +176,6 @@
 
 @media screen and (max-width: 768px) {
     .featured-posts__hero {
-
 
         .post-info {
             background-color: #F3F2EA;
@@ -239,6 +245,12 @@
 
 @media screen and (max-width: 565px) {
     .featured-posts__hero {
+        .featured-post-img-wrapper {
+            &:before {
+                height: 70%;
+                background: linear-gradient(to bottom,rgba(0, 0, 0, 0.9) 50%, #00000000);
+            }
+        }
         .post-info {
             max-width: 90%;
         }

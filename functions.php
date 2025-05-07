@@ -120,6 +120,7 @@ function load_more_posts_callback() {
     $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $category = isset($_POST['category']) ? intval($_POST['category']) : 0;
     $author = isset($_POST['author']) ? intval($_POST['author']) : 0;
+    $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
 
     $args = array(
         'paged' => $page,
@@ -133,6 +134,10 @@ function load_more_posts_callback() {
 
     if (!empty($author)) {
         $args['author'] = $author;
+    }
+
+    if (!empty($search)) {
+        $args['s'] = $search;
     }
 
     $query = new WP_Query($args);
@@ -151,6 +156,25 @@ function load_more_posts_callback() {
 
     wp_die();
 }
+
+function exclude_specific_pages_from_search($query) {
+    if ($query->is_search() && $query->is_main_query() && !is_admin()) {
+        // Slugs of pages you want to exclude
+        $exclude_slugs = array('elementor-9', 'agb', 'impressum', 'datenschutz');
+
+        $exclude_ids = array();
+
+        foreach ($exclude_slugs as $slug) {
+            $page = get_page_by_path($slug);
+            if ($page) {
+                $exclude_ids[] = $page->ID;
+            }
+        }
+
+        $query->set('post__not_in', $exclude_ids);
+    }
+}
+add_action('pre_get_posts', 'exclude_specific_pages_from_search');
 
 
 
