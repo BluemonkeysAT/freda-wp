@@ -1952,6 +1952,7 @@ footer {
 
         .thumbnail-wrapper {
           padding-bottom: 0;
+          position: relative;
         }
 
         .post-info {
@@ -1959,6 +1960,7 @@ footer {
           padding: 20px 12px;
           border-bottom-left-radius: 8px;
           border-bottom-right-radius: 8px;
+          margin-top: -5px;
 
           .post-title {
             padding: 0;
