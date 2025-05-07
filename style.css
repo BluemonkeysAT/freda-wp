@@ -1823,14 +1823,18 @@ footer {
             font-weight: 300;
             color: #000000;
           }
+          .post-arrow {
+            justify-self: end;
 
-          .mobile-arrow {
-            display: flex;
+            .mobile-icon {
+              display: flex !important;
+            }
+  
+            .desktop-icon {
+              display: none;
+            }
           }
-
-          .desktop-arrow {
-            display: none;
-          }
+          
 
           a {
             margin-top: -10px;
@@ -1932,7 +1936,7 @@ footer {
       font-weight: 700;
       margin-bottom: 15px;
       color: #000000;
-    }
+    }  
   }
 }
 
@@ -1946,11 +1950,24 @@ footer {
       .post-item {
         gap: 0;
 
+        .thumbnail-wrapper {
+          padding-bottom: 0;
+        }
+
         .post-info {
           background-color: #ffffff;
-          padding: 20px;
+          padding: 20px 12px;
           border-bottom-left-radius: 8px;
           border-bottom-right-radius: 8px;
+
+          .post-title {
+            padding: 0;
+          }
+
+          .post-excerpt {
+            padding: 0;
+            -webkit-line-clamp: 3;
+          }
         }
       }
     }
