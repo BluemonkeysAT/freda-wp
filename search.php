@@ -8,10 +8,17 @@
         <?php 
         
         $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+        $excluded_pages = [
+            get_page_by_path('elementor-9')?->ID,
+            get_page_by_path('agb')?->ID,
+            get_page_by_path('impressum')?->ID,
+            get_page_by_path('datenschutz')?->ID,
+        ];
         $query = new \WP_Query([
             'posts_per_page' => 6,
             'paged' => $paged,
             's' => get_search_query(),
+            'post__not_in' => array_filter($excluded_pages),
         ]);
         ?>
         <?php

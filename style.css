@@ -2348,6 +2348,7 @@ footer {
 @media screen and (max-width: 1024px) {
   .search-results-wrapper {
     height: auto;
+    padding: 120px 0;
 
     .container {
       height: 100%;
