@@ -2172,6 +2172,7 @@ footer {
     .related-posts__socials {
       h3 {
         font-size: 16px;
+        max-width: 80%;
       }
     }
   }
