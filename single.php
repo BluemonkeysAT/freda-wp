@@ -90,17 +90,17 @@
                 </div>
                 <div class="post-share-buttons">
                     <div class="share-buttons">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button facebook">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/facebook-icon.svg" alt="Facebook">
-                            <span>Facebook</span>
+                        <a href="mailto:?subject=<?php echo rawurlencode(get_the_title()); ?>&body=<?php echo rawurlencode(get_permalink()); ?>" target="_blank" class="share-button email">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/email-share-icon.svg" alt="Email">
+                            <span>Email</span>
                         </a>
-                        <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" target="_blank" class="share-button twitter">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/x-icon.svg" alt="Twitter">
-                            <span>Twitter</span>
-                        </a>
-                        <a href="https://www.whatsapp.com/share?text=<?php echo urlencode(get_the_title()); ?> <?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button linkedin">
+                        <a href="https://www.whatsapp.com/share?text=<?php echo urlencode(get_the_title()); ?> <?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button whatsapp">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/whatsapp-icon.svg" alt="WhatsApp">
                             <span>WhatsApp</span>
+                        </a>
+                        <a href="https://bsky.app/share?text=<?php echo urlencode(get_the_title()); ?>&url=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button bluesky">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/bluesky-icon.svg" alt="Bluesky">
+                            <span>Bluesky</span>
                         </a>
                     </div>
                 </div>

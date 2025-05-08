@@ -1913,11 +1913,9 @@ footer {
 
   .selected-posts {
     .post-item {
-      gap: 0;
-
+      
       .thumbnail-wrapper {
         border: none !important;
-        padding-bottom: 10px;
       }
     }
   }
@@ -2306,12 +2304,17 @@ footer {
     gap: 30px;
     width: 100%;
 
+    > * {
+      align-self: stretch;
+    }
+
     .post-item {
       position: relative;
       display: flex;
       flex-direction: column;
       gap: 0;
       transition: all 0.3s ease;
+      height: 100%;
 
       &:hover {
         img {
@@ -2330,6 +2333,7 @@ footer {
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         margin-top: -5px;
+        flex-grow: 1;
 
         .post-title {
           text-transform: uppercase;
