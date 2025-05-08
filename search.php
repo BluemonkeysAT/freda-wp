@@ -49,7 +49,12 @@
         <div class="no-results">
             <h2><?php esc_html_e( 'Keine Ergebnisse', 'freda-magazine' ); ?></h2>
             <p><?php esc_html_e( 'Entschuldigung, aber zu deinen Suchbegriffen wurde nichts gefunden. Bitte versuche es mit anderen Stichwörtern.', 'freda-magazine' ); ?></p>
-            <?php get_search_form(); ?>
+            <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
+                <input type="search" class="search-field" placeholder="<?php esc_attr_e('Search …', 'freda-magazine'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+                <button type="submit" class="search-submit">
+                    <img src="<?= get_template_directory_uri(); ?>/assets/icons/search-icon-black.svg" alt="Search Icon" />
+                </button>
+            </form>
         </div>
     <?php endif; ?>
     </div>

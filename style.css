@@ -2254,11 +2254,14 @@ footer {
     gap: 24px;
 
     .no-results {
-      grid-column: 1 / span 3;
+      grid-column: 2/ 2;
       text-align: center;
 
       h2 {
-        font-size: 50px;
+        font-size: 45px;
+        font-family: "GothamNarrow-Medium", sans-serif !important;
+        line-height: 1 !important;
+        text-transform: uppercase;
       }
 
       h2,
@@ -2269,30 +2272,48 @@ footer {
         line-height: 1.4;
       }
 
-      input {
-        margin-top: 15px;
-        font-family: "GothamNarrow-Light", sans-serif;
-        font-weight: 300;
-        color: #000;
-        font-size: 17px;
-        padding: 10px 20px;
+      form {
+        display: flex;
+        align-items: center;
         width: 100%;
         border-radius: 8px;
         outline: none;
         border: 1px solid #000;
-
-        &[type="submit"] {
-          background: #30472f;
+        margin-top: 15px;
+        
+        input {
+          font-family: "GothamNarrow-Light", sans-serif;
+          font-weight: 300;
+          color: #000;
+          border-radius: 8px;
+          font-size: 17px;
           padding: 10px 20px;
+          width: 100%;
+          outline: none;
+          border: none;
+        }
+  
+        .search-submit {
+          background: none;
+          border: none;
+          outline: none;
           color: #fff;
           font-size: 20px;
+          margin-right: 15px;
           cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 20px;
+          height: 100%;
 
+  
           &:hover {
             opacity: 0.8;
           }
         }
       }
+      
     }
   }
 
